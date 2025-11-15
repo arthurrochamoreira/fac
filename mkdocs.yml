@@ -46,10 +46,6 @@ theme:
       primary: deep purple
       accent: deep orange
 
-nav:
-  - Home: index.md
-  - Projetos:
-      - Projeto: Projeto/Projeto.md
 
 nav:
   - Home: index.md
@@ -57,14 +53,15 @@ nav:
   #    - Modified Condition/Decision Coverage (MC/DC): aae3/mc_dc.md
   # - AAE:
   # - AAE3: aae3/aae3.md
-  - Modulos: 
-      - Modulo 1: mod1.md
-      - Modulo 2: mod2.md
-      - Modulo 3: mod3.md
-      - Modulo 4: mod4.md
-      - Modulo 5: mod5.md
-      - Modulo 6: mod6.md
-      - Modulo 7: mod7.md
+  - Modulo 1: modulos/modulo 1/mod1.md
+  - Modulo 2: modulos/modulo 2/mod2.md
+  - Modulo 3: modulos/modulo 3/mod3.md
+  - Modulo 4: 
+    - Modulo 4.1: modulos/modulo 4/mod4.1_instrucoes_de_imediato.md
+    - Modulo 4.2:  modulos/modulo 4/mod4.2_movimentacoes_de_dados.md
+    - Modulo 4.3:  modulos/modulo 4/mod4.3_aritmetica_basica.md
+    - Modulo 4.4:  modulos/modulo 4/mod4.4_comparacoes_e_desvios.md
+    - Modulo 4.5:  modulos/modulo 4/mod4.5_saltos.md
 
   #    - Teste de Unidade: aae3/unit_test.md
   # - White-Box Testing:
