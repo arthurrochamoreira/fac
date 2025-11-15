@@ -1,0 +1,966 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../mod4/">
+      
+      
+        <link rel="next" href="../mod6/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Modulo 5 - Fundamentos de Arquitetura de Computadores</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom-general.css">
+    
+      <link rel="stylesheet" href="../css/night-sky.css">
+    
+      <link rel="stylesheet" href="../css/shooting-stars.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-5-loops-e-desvios-beq-bne-j" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Fundamentos de Arquitetura de Computadores" class="md-header__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Arquitetura de Computadores
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modulo 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../mod1/" class="md-tabs__link">
+          
+  
+  
+  Modulos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Arquitetura de Computadores" class="md-nav__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Arquitetura de Computadores
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modulos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="modulo-5-loops-e-desvios-beq-bne-j">Módulo 5 — Loops e Desvios (<code>beq</code>, <code>bne</code>, <code>j</code>)</h1>
+<p>Em assembly RISC-V <strong>não existem</strong> palavras como <code>while</code>, <code>for</code> ou <code>loop</code>.
+O que existe é:</p>
+<ul>
+<li><strong>rótulos (labels)</strong> → marcam posições no código</li>
+<li><strong>desvios (branches)</strong> → instruções que saltam para um rótulo com base em uma condição</li>
+</ul>
+<p>Qualquer loop de alto nível se transforma em uma estrutura:</p>
+<ol>
+<li>inicialização do contador</li>
+<li>definição de um rótulo para o início do loop</li>
+<li>corpo do loop</li>
+<li>atualização do estado (contador, ponteiro, etc.)</li>
+<li>desvio condicional para repetir</li>
+</ol>
+<p>Exemplo mínimo:</p>
+<pre><code class="language-asm">loop:
+    ... instruções ...
+    beq x0, x0, loop    # desvio incondicional (x0 == x0 sempre)
+</code></pre>
+<hr />
+<h1 id="1-instrucoes-essenciais-de-desvio">1. Instruções essenciais de desvio</h1>
+<h2 id="11-beq-rs1-rs2-label">1.1 <code>beq rs1, rs2, label</code></h2>
+<p>Desvia se <code>rs1 == rs2</code>.</p>
+<h2 id="12-bne-rs1-rs2-label">1.2 <code>bne rs1, rs2, label</code></h2>
+<p>Desvia se <code>rs1 != rs2</code>.</p>
+<h2 id="13-j-label">1.3 <code>j label</code></h2>
+<p>Pseudo-instrução de salto incondicional, montada como:</p>
+<pre><code class="language-asm">jal x0, label
+</code></pre>
+<p>Como <code>x0</code> descarta valores, o salto não registra endereço de retorno.</p>
+<p>Ao dominar essas três, você já implementa loops equivalentes a <code>while</code> e <code>for</code>.</p>
+<hr />
+<h1 id="2-exemplo-1-contagem-regressiva-de-5-ate-1">2. Exemplo 1 — Contagem regressiva de 5 até 1</h1>
+<h2 id="logica-em-portugues">Lógica em português</h2>
+<ol>
+<li><code>t0 = 5</code></li>
+<li>imprimir <code>t0</code></li>
+<li>diminuir <code>t0</code></li>
+<li>enquanto <code>t0 != 0</code>, repetir</li>
+<li>quando <code>t0 == 0</code>, encerrar</li>
+</ol>
+<p><code>t0</code> é um registrador temporário (grupo <code>t0–t6</code>).</p>
+<h2 id="codigo-completo">Código completo</h2>
+<pre><code class="language-asm">.data
+msg: .asciz &quot;Valor: &quot;
+
+.text
+.globl main
+
+main:
+    li t0, 5                 # contador inicial
+
+loop:
+    # imprime &quot;Valor: &quot;
+    la a0, msg               # endereço da string
+    li a7, 4                 # print_string
+    ecall
+
+    # imprime o valor atual
+    mv a0, t0
+    li a7, 1                 # print_int
+    ecall
+
+    # quebra de linha
+    li a0, 10                # '\n'
+    li a7, 11                # print_char
+    ecall
+
+    addi t0, t0, -1          # t0--
+
+    bne t0, x0, loop         # enquanto t0 != 0 → repete
+
+    li a7, 93                # exit2
+    ecall
+</code></pre>
+<hr />
+<h1 id="3-exemplo-2-contagem-crescente-de-1-a-10">3. Exemplo 2 — Contagem crescente de 1 a 10</h1>
+<p>Aqui usamos uma instrução adicional:</p>
+<ul>
+<li><strong><code>blt rs1, rs2, label</code></strong> → desvia se <code>rs1 &lt; rs2</code>.</li>
+</ul>
+<h2 id="codigo">Código</h2>
+<pre><code class="language-asm">.text
+.globl main
+
+main:
+    li t0, 1          # contador = 1
+
+loop:
+    mv a0, t0
+    li a7, 1          # print_int
+    ecall
+
+    # quebra de linha
+    li a0, 10
+    li a7, 11
+    ecall
+
+    addi t0, t0, 1    # t0++
+
+    li t1, 11
+    blt t0, t1, loop  # enquanto t0 &lt; 11 → repete
+
+    li a7, 93
+    ecall
+</code></pre>
+<hr />
+<h1 id="4-exemplo-3-soma-de-1-ate-n">4. Exemplo 3 — Soma de 1 até N</h1>
+<p>Versão do clássico:</p>
+<pre><code>soma = 0
+i = 1
+enquanto i &lt;= N:
+    soma += i
+    i++
+</code></pre>
+<p>Registradores usados:</p>
+<ul>
+<li><code>t0</code> = N</li>
+<li><code>t1</code> = i</li>
+<li><code>t2</code> = soma</li>
+</ul>
+<p>Aqui usamos <strong><code>ble rs1, rs2, label</code></strong> → desvia se <code>rs1 &lt;= rs2</code>.</p>
+<h2 id="codigo_1">Código</h2>
+<pre><code class="language-asm">.data
+msg: .asciz &quot;Soma final: &quot;
+
+.text
+.globl main
+
+main:
+    li t0, 5              # N = 5
+    li t1, 1              # i = 1
+    li t2, 0              # soma = 0
+
+loop:
+    add t2, t2, t1        # soma += i
+    addi t1, t1, 1        # i++
+
+    ble t1, t0, loop      # enquanto i &lt;= N → repete
+
+    la a0, msg
+    li a7, 4              # print_string
+    ecall
+
+    mv a0, t2
+    li a7, 1              # print_int
+    ecall
+
+    li a7, 93
+    ecall
+</code></pre>
+<hr />
+<h1 id="5-exemplo-4-somar-todos-os-elementos-de-um-array">5. Exemplo 4 — Somar todos os elementos de um array</h1>
+<p>Cada elemento <code>.word</code> ocupa 4 bytes.
+Percorremos o vetor avançando o ponteiro em +4 a cada iteração.</p>
+<p>Registradores:</p>
+<ul>
+<li><code>t0</code> → ponteiro para elemento atual</li>
+<li><code>t1</code> → índice</li>
+<li><code>t2</code> → soma</li>
+<li><code>t3</code> → elemento atual</li>
+<li><code>t4</code> → tamanho do vetor</li>
+</ul>
+<h2 id="codigo_2">Código</h2>
+<pre><code class="language-asm">.data
+vet: .word 3, 6, 9, 12
+msg: .asciz &quot;Soma: &quot;
+
+.text
+.globl main
+
+main:
+    la t0, vet         # ponteiro inicial
+    li t1, 0           # índice
+    li t2, 0           # soma
+
+loop:
+    lw t3, 0(t0)       # elemento atual
+    add t2, t2, t3     # soma += elemento
+
+    addi t0, t0, 4     # próximo elemento
+    addi t1, t1, 1     # índice++
+
+    li t4, 4           # tamanho do vetor (4 elementos)
+    blt t1, t4, loop   # enquanto i &lt; 4 → repete
+
+    la a0, msg
+    li a7, 4
+    ecall
+
+    mv a0, t2
+    li a7, 1
+    ecall
+
+    li a7, 93
+    ecall
+</code></pre>
+<hr />
+<h1 id="6-molde-geral-de-um-loop-no-risc-v">6. Molde geral de um loop no RISC-V</h1>
+<p>Você pode usar este template para qualquer loop:</p>
+<pre><code class="language-asm">    # inicialização
+
+loop:
+    # corpo do loop
+
+    # atualização do estado
+
+    # condição de repetição
+    beq / bne / blt / ble / bge / bgt ... loop
+</code></pre>
+<p>Esse formato mapeia diretamente para <code>while</code> e <code>for</code>.</p>
+<hr />
+<h1 id="7-exercicios-propostos">7. Exercícios propostos</h1>
+<ol>
+<li>Imprimir os números de <strong>10 até 1</strong></li>
+<li>Imprimir apenas os <strong>pares de 2 até 20</strong></li>
+<li>Somar todos os <strong>2 × i</strong>, para <code>i</code> de 1 a 10</li>
+<li>Percorrer um vetor de 6 posições e contar quantos são <strong>&gt; 50</strong></li>
+<li>Ler um número <strong>N</strong> do usuário e imprimir de 1 até N</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../mod4/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Modulo 4">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Modulo 4
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../mod6/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Modulo 6">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Modulo 6
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "navigation.sections", "navigation.index", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy", "header.autohide", "announce.dismiss"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+        <script src="../js/interactive.js"></script>
+      
+        <script src="../js/shooting-stars.js"></script>
+      
+        <script src="../js/starfield.js"></script>
+      
+        <script src="../js/night-sky.js"></script>
+      
+    
+  </body>
+</html>

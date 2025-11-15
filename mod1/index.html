@@ -1,0 +1,924 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../mod2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Modulo 1 - Fundamentos de Arquitetura de Computadores</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/custom-general.css">
+    
+      <link rel="stylesheet" href="../css/night-sky.css">
+    
+      <link rel="stylesheet" href="../css/shooting-stars.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-1-introducao" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Fundamentos de Arquitetura de Computadores" class="md-header__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Arquitetura de Computadores
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modulo 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Modulos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fundamentos de Arquitetura de Computadores" class="md-nav__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Arquitetura de Computadores
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modulos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="modulo-1-introducao">Modulo 1 - Introdução</h1>
+<h1 id="1-o-que-e-risc-v">1. O que é RISC-V?</h1>
+<p>RISC-V é uma <strong>arquitetura de conjunto de instruções</strong>
+(ISA — <em>Instruction Set Architecture</em>).
+Uma <strong>ISA</strong> é o “vocabulário” que o processador entende: as operações básicas que ele sabe executar.</p>
+<ul>
+<li><strong>RISC</strong> (<em>Reduced Instruction Set Computer</em>) = arquitetura com poucas instruções, simples e rápidas.</li>
+<li><strong>V</strong> = quinta geração dessa família RISC.</li>
+<li><strong>RV32I</strong> = versão de 32 bits (32 = largura dos registradores) com o conjunto básico de instruções inteiras (I = <em>Integer</em>).</li>
+</ul>
+<p>Um processador RISC-V só entende operações fundamentais, como:</p>
+<ul>
+<li>mover valores entre <strong>registradores</strong> (pequenas memórias internas do processador)</li>
+<li>ler/escrever na <strong>memória</strong></li>
+<li>fazer operações aritméticas</li>
+<li>saltar para outro ponto do código</li>
+</ul>
+<h3 id="observacao-importante">Observação importante</h3>
+<p>Os registradores possuem <strong>apelidos educativos</strong> (<code>a0</code>, <code>t0</code>, <code>s0</code> etc.),
+mas internamente <strong>eles continuam sendo</strong> <code>x0</code>, <code>x1</code>, …, <code>x31</code>.
+Por exemplo:</p>
+<ul>
+<li><code>a0</code> = <code>x10</code></li>
+<li><code>a7</code> = <code>x17</code></li>
+<li><code>t0</code> = <code>x5</code></li>
+</ul>
+<p>Isso aparece no painel “Registers” do RARS.</p>
+<hr />
+<h1 id="2-o-que-e-o-rars">2. O que é o RARS?</h1>
+<p>O <strong>RARS</strong> (<em>RISC-V Assembler and Runtime Simulator</em>) é um <strong>simulador</strong>, ou seja:</p>
+<blockquote>
+<p>Um programa que imita um processador RISC-V para permitir que você execute código sem ter o hardware real.</p>
+</blockquote>
+<p>Ele funciona assim:</p>
+<ol>
+<li>Você escreve um arquivo <code>.asm</code>
+   (arquivo contendo código em <strong>assembly</strong>, a linguagem textual da ISA).</li>
+<li>O RARS <strong>monta</strong> o código
+   (<em>assembler</em> = traduz para instruções binárias reais).</li>
+<li>O RARS <strong>executa</strong> e mostra o que acontece nos registradores e na memória.</li>
+</ol>
+<p>Além disso, o RARS oferece <strong>syscalls</strong> (<em>system calls</em>): serviços prontos como imprimir texto ou ler números do usuário.</p>
+<hr />
+<h1 id="3-registradores-sua-caixa-de-ferramentas">3. Registradores: sua caixa de ferramentas</h1>
+<p>Um <strong>registrador</strong> é uma pequena área de armazenamento dentro do processador.
+É muito mais rápido acessar registradores do que acessar memória.</p>
+<p>O RISC-V possui <strong>32 registradores inteiros</strong>, de <code>x0</code> a <code>x31</code>, cada um com um apelido:</p>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x0</code></td>
+<td>sempre contém o valor 0</td>
+</tr>
+<tr>
+<td><code>a0–a7</code></td>
+<td>argumentos de funções e syscalls (<em>argument registers</em>)</td>
+</tr>
+<tr>
+<td><code>t0–t6</code></td>
+<td>temporários (<em>temporary registers</em>)</td>
+</tr>
+<tr>
+<td><code>s0–s11</code></td>
+<td>variáveis preservadas (<em>saved registers</em>)</td>
+</tr>
+<tr>
+<td><code>sp</code></td>
+<td>ponteiro da pilha (<em>stack pointer</em>)</td>
+</tr>
+<tr>
+<td><code>ra</code></td>
+<td>endereço de retorno (<em>return address</em>)</td>
+</tr>
+</tbody>
+</table>
+<p>Para o Hello World utilizamos principalmente:</p>
+<ul>
+<li><strong><code>a0</code></strong> — registrador que contém o argumento da syscall</li>
+<li><strong><code>a7</code></strong> — registrador que contém o código da syscall</li>
+</ul>
+<hr />
+<h1 id="4-formato-basico-das-instrucoes">4. Formato básico das instruções</h1>
+<p>Uma <strong>instrução</strong> é um comando da ISA.
+No RV32I, muitos comandos seguem o formato:</p>
+<pre><code>instrução destino, fonte1, fonte2
+</code></pre>
+<p>Exemplos:</p>
+<pre><code>add t0, t1, t2   # add = soma: t0 recebe t1 + t2
+li a0, 5         # li = load immediate: coloca 5 dentro de a0
+la a0, msg       # la = load address: carrega o endereço do rótulo msg
+lw t1, 0(t0)     # lw = load word: lê 4 bytes da memória no endereço t0
+</code></pre>
+<h3 id="nota-tecnica">Nota técnica</h3>
+<p>No RISC-V, todos os endereços se referem a <strong>1 byte</strong> (memória byte-addressable).
+Um <code>lw</code> lê 4 bytes a partir daquele endereço.</p>
+<hr />
+<h1 id="5-pseudo-instrucoes">5. Pseudo-instruções</h1>
+<p>O montador do RARS fornece <strong>pseudo-instruções</strong>, que não existem no hardware real, mas tornam o código mais fácil de escrever:</p>
+<ul>
+<li><code>li</code> — <em>load immediate</em>: carrega um valor imediato</li>
+<li><code>la</code> — <em>load address</em>: carrega o endereço de um rótulo</li>
+<li><code>mv</code> — <em>move</em>: copia o valor de um registrador para outro</li>
+</ul>
+<p>O montador converte essas pseudo-instruções em <strong>instruções reais RV32I</strong> durante a montagem.</p>
+<hr />
+<h1 id="6-sessoes-do-programa">6. Sessões do programa</h1>
+<p>Um arquivo <code>.asm</code> é dividido em sessões:</p>
+<h2 id="data-dados-estaticos-na-memoria"><code>.data</code> — dados estáticos na memória</h2>
+<pre><code>.data
+msg: .asciz &quot;Hello, World!\n&quot;
+</code></pre>
+<p><code>.asciz</code> define uma string <strong>terminada em byte zero</strong> (<code>\0</code>).
+Isso é importante porque a syscall 4 (<em>print_string</em>) espera exatamente esse formato.</p>
+<h2 id="text-codigo-executavel"><code>.text</code> — código executável</h2>
+<pre><code>.text
+.globl main     # .globl = global: torna 'main' o ponto de entrada
+</code></pre>
+<p>A execução começa no rótulo <code>main:</code>.</p>
+<hr />
+<h1 id="7-como-o-rars-imprime-syscalls">7. Como o RARS imprime (syscalls)</h1>
+<p>Uma <strong>syscall</strong> (<em>system call</em>) é uma chamada ao sistema operacional do simulador para executar ações prontas, como imprimir ou ler entradas.</p>
+<h3 id="para-chamar-uma-syscall">Para chamar uma syscall:</h3>
+<ol>
+<li>Coloque o <strong>código da syscall</strong> em <code>a7</code></li>
+<li>Coloque o <strong>argumento</strong> em <code>a0</code></li>
+<li>Execute <code>ecall</code> (<em>environment call</em>)</li>
+</ol>
+<p><strong>Resumo perfeito:</strong></p>
+<blockquote>
+<p><code>a7</code> escolhe o serviço, <code>a0</code> fornece o dado, <code>ecall</code> executa.</p>
+</blockquote>
+<h3 id="syscalls-usadas-no-hello-world">Syscalls usadas no Hello World:</h3>
+<table>
+<thead>
+<tr>
+<th>Código</th>
+<th>Função</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>4</code></td>
+<td>imprimir string (<strong>print_string</strong>)</td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td>encerrar o programa (<strong>exit2</strong>)</td>
+</tr>
+</tbody>
+</table>
+<p>Exemplo:</p>
+<pre><code class="language-asm">la a0, msg     # a0 = endereço da string
+li a7, 4       # a7 = código de print_string
+ecall          # dispara a syscall
+</code></pre>
+<hr />
+<h1 id="8-montando-tudo-hello-world">8. Montando tudo: Hello World</h1>
+<pre><code class="language-asm">    .data                           # sessão de dados
+msg: .asciz &quot;Hello, World!\n&quot;       # string terminada em zero
+
+    .text                           # sessão de código
+    .globl main                     # torna 'main' visível
+
+main:
+    la a0, msg                      # carrega o endereço da string msg em a0
+    li a7, 4                        # syscall 4 = print_string
+    ecall                           # imprime
+
+    li a0, 0                        # código de saída (0 = sucesso)
+    li a7, 10                       # syscall 93 = exit2
+    ecall                           # encerra
+</code></pre>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Anterior: Home">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../mod2/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Modulo 2">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Modulo 2
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "navigation.sections", "navigation.index", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy", "header.autohide", "announce.dismiss"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+        <script src="../js/interactive.js"></script>
+      
+        <script src="../js/shooting-stars.js"></script>
+      
+        <script src="../js/starfield.js"></script>
+      
+        <script src="../js/night-sky.js"></script>
+      
+    
+  </body>
+</html>
