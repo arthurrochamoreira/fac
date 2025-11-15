@@ -7,13 +7,13 @@ Neste módulo você aprende:
 * como declarar strings com `.string` e `.asciz`
 * como funciona a sessão `.text`
 * como definir o ponto de entrada (`main:`)
-* como carregar endereços com `la` (*load address* — primeira ocorrência)
+* como carregar endereços com `la` (*load address*)
 
 ---
 
 # 1. A sessão `.data` — onde ficam os dados do programa
 
-A diretiva **`.data`** (primeira ocorrência: *data section*) indica ao montador que tudo abaixo dela deve ser colocado na **área de dados** do programa: uma região de memória reservada para **valores estáticos**, como:
+A diretiva **`.data`** (*data section*) indica ao montador que tudo abaixo dela deve ser colocado na **área de dados** do programa: uma região de memória reservada para **valores estáticos**, como:
 
 * números
 * vetores
@@ -36,7 +36,7 @@ Aqui:
 
 # 2. Labels (label:) como ponteiros
 
-Um **label** (primeira ocorrência: rótulo) é apenas um **nome associado a um endereço** na memória.
+Um **label** (rótulo) é apenas um **nome associado a um endereço** na memória.
 
 Ele funciona como um **ponteiro** em C:
 
@@ -90,7 +90,7 @@ Memória:
 
 ## `.asciz "texto"`
 
-A diretiva **`.asciz`** (*ASCII zero-terminated* — primeira ocorrência) grava a string **seguida de um byte zero**, exatamente como em C.
+A diretiva **`.asciz`** (*ASCII zero-terminated*) grava a string **seguida de um byte zero**, exatamente como em C.
 
 Exemplo:
 
@@ -105,13 +105,13 @@ Memória:
  H  e  l  l  o \0
 ```
 
-O byte zero final (`\0`) é **obrigatório** para syscalls como **print_string** no simulador RARS (*RISC-V Assembler and Runtime Simulator* — primeira ocorrência).
+O byte zero final (`\0`) é **obrigatório** para syscalls como **print_string** no simulador RARS (*RISC-V Assembler and Runtime Simulator*).
 
 ---
 
 # 4. A sessão `.text` — onde ficam as instruções
 
-A diretiva **`.text`** (primeira ocorrência: *code section*) marca o início do código executável: todas as instruções do programa.
+A diretiva **`.text`** (*code section*) marca o início do código executável: todas as instruções do programa.
 
 Exemplo:
 
@@ -138,7 +138,7 @@ O RARS procura por um rótulo específico para começar a execução:
 main:
 ```
 
-Esse é o **entry point** (primeira ocorrência: ponto de entrada).
+Esse é o **entry point** (ponto de entrada).
 
 Exemplo completo:
 
@@ -152,7 +152,7 @@ main:
     ecall
 ```
 
-A diretiva `.globl` (primeira ocorrência: *global symbol*) informa ao montador que este rótulo deve ser acessível como símbolo externo — é assim que o RARS sabe que `main` é seu ponto de início.
+A diretiva `.globl` (*global symbol*) informa ao montador que este rótulo deve ser acessível como símbolo externo — é assim que o RARS sabe que `main` é seu ponto de início.
 
 ---
 

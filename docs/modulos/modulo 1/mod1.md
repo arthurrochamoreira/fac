@@ -7,7 +7,7 @@ o que é uma ISA, por que começamos pelo conjunto RV32I, como funciona o simula
 
 # **1. O que é RISC-V?**
 
-RISC-V é uma **arquitetura de conjunto de instruções** (ISA — *Instruction Set Architecture*, primeira ocorrência).
+RISC-V é uma **arquitetura de conjunto de instruções** (ISA — *Instruction Set Architecture*).
 Uma **ISA** é o conjunto de comandos que o processador entende **no nível mais baixo**, como:
 
 * somar valores
@@ -16,7 +16,7 @@ Uma **ISA** é o conjunto de comandos que o processador entende **no nível mais
 * comparar números
 * executar operações lógicas
 
-O termo **RISC** significa *Reduced Instruction Set Computer* (primeira ocorrência):
+O termo **RISC** significa *Reduced Instruction Set Computer*:
 uma filosofia de projeto que preza por instruções simples, diretas e rápidas.
 
 O **“V”** indica que esta é a quinta geração da família RISC dessa linha de pesquisa.
@@ -29,7 +29,7 @@ A sigla **RV32I** significa:
 
 * **RV** — *RISC-V*
 * **32** — registradores e endereços possuem **32 bits**
-* **I** — conjunto básico de instruções inteiras (*Integer*, primeira ocorrência)
+* **I** — conjunto básico de instruções inteiras (*Integer*)
 
 O RV32I é:
 
@@ -45,13 +45,13 @@ Tudo que você aprender aqui funciona **em qualquer implementação real** de RI
 # **3. O que é um simulador (RARS)**
 
 Para programar em RISC-V sem comprar um chip físico, usamos o **RARS**
-(*RISC-V Assembler and Runtime Simulator*, primeira ocorrência).
+(*RISC-V Assembler and Runtime Simulator*).
 
 O RARS permite:
 
 ### **3.1 Montar o código**
 
-O montador (*assembler*, primeira ocorrência) converte o código `.asm` em instruções binárias reais da ISA.
+O montador (*assembler*) converte o código `.asm` em instruções binárias reais da ISA.
 
 ### **3.2 Executar o programa**
 
@@ -71,7 +71,7 @@ O simulador roda o binário e mostra o fluxo do programa.
 
 Um programa típico possui duas sessões principais:
 
-## **4.1 Sessão `.data` (data section, primeira ocorrência)**
+## **4.1 Sessão `.data` (data section)**
 
 Armazena dados estáticos, como números, vetores e strings.
 
@@ -83,7 +83,7 @@ msg: .asciz "Hello!\n"
 x:   .word 42
 ```
 
-## **4.2 Sessão `.text` (text section, primeira ocorrência)**
+## **4.2 Sessão `.text` (text section)**
 
 Armazena o **código executável**.
 
@@ -94,14 +94,14 @@ Exemplo:
 .globl main           # .globl (global): define o ponto de entrada
 
 main:
-    li a0, 42         # li = load immediate (primeira ocorrência): coloca 42 em a0
+    li a0, 42         # li = load immediate: coloca 42 em a0
     li a7, 1          # código da syscall print_int
-    ecall             # ecall = environment call (primeira ocorrência)
+    ecall             # ecall = environment call
 ```
 
 ### **4.3 Labels**
 
-Um **label** (primeira ocorrência: rótulo) é um nome que representa um endereço na memória.
+Um **label** (rótulo) é um nome que representa um endereço na memória.
 
 Exemplo:
 
@@ -158,7 +158,7 @@ O comportamento é definido pela **instrução que lê esses bits**.
 
 O processador possui:
 
-* **PC** (*program counter*, primeira ocorrência):
+* **PC** (*program counter*):
   registrador que aponta para a **próxima instrução** a ser executada.
 
 O ciclo básico é:

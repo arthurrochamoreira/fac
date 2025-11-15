@@ -1,13 +1,13 @@
 # **Módulo 3 — Registradores do RV32I**
 
 O conjunto RV32I possui **32 registradores inteiros**, cada um com um papel definido pela *ABI*
-(*Application Binary Interface*, primeira ocorrência).
+(*Application Binary Interface*).
 A ABI determina **como funções recebem argumentos**, **como retornam valores**, **quais registradores podem ser sobrescritos** e **quais devem ser preservados**.
 
 Este módulo apresenta:
 
 * as categorias de registradores (`a*`, `t*`, `s*`, `zero`)
-* como funcionam no *calling convention* (primeira ocorrência: convenção de chamada)
+* como funcionam no *calling convention* (convenção de chamada)
 * por que usamos `a0`, `a7`, `t0` etc.
 * o que é o registrador `sp` e como ele forma a pilha
 
@@ -79,7 +79,7 @@ jal ra, dobro    # chama função
 
 # **4. Registradores `t*` — Temporary Registers**
 
-Os registradores `t0–t6` (*temporary registers*, primeira ocorrência) são temporários:
+Os registradores `t0–t6` (*temporary registers*) são temporários:
 
 * a função **pode sobrescrevê-los livremente**
 * não precisam ser preservados na pilha
@@ -103,7 +103,7 @@ addi t0, t0, 1    # t0 = 6
 
 # **5. Registradores `s*` — Saved Registers**
 
-Registradores `s0–s11` (*saved registers*, primeira ocorrência) são usados quando um valor precisa **sobreviver a chamadas de função**.
+Registradores `s0–s11` (*saved registers*) são usados quando um valor precisa **sobreviver a chamadas de função**.
 
 Regra da ABI:
 
@@ -126,9 +126,9 @@ ret
 
 # **6. Registrador `sp` — Stack Pointer**
 
-`sp` (*stack pointer*, primeira ocorrência) aponta para o **topo da pilha**.
+`sp` (*stack pointer*) aponta para o **topo da pilha**.
 
-A pilha é uma região de memória com comportamento **LIFO** (*last in, first out*, primeira ocorrência).
+A pilha é uma região de memória com comportamento **LIFO** (*last in, first out*).
 
 ### **6.1 Como a pilha cresce**
 
