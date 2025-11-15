@@ -715,11 +715,11 @@
 <li>como declarar strings com <code>.string</code> e <code>.asciz</code></li>
 <li>como funciona a sessão <code>.text</code></li>
 <li>como definir o ponto de entrada (<code>main:</code>)</li>
-<li>como carregar endereços com <code>la</code> (<em>load address</em> — primeira ocorrência)</li>
+<li>como carregar endereços com <code>la</code> (<em>load address</em>)</li>
 </ul>
 <hr />
 <h1 id="1-a-sessao-data-onde-ficam-os-dados-do-programa">1. A sessão <code>.data</code> — onde ficam os dados do programa</h1>
-<p>A diretiva <strong><code>.data</code></strong> (primeira ocorrência: <em>data section</em>) indica ao montador que tudo abaixo dela deve ser colocado na <strong>área de dados</strong> do programa: uma região de memória reservada para <strong>valores estáticos</strong>, como:</p>
+<p>A diretiva <strong><code>.data</code></strong> (<em>data section</em>) indica ao montador que tudo abaixo dela deve ser colocado na <strong>área de dados</strong> do programa: uma região de memória reservada para <strong>valores estáticos</strong>, como:</p>
 <ul>
 <li>números</li>
 <li>vetores</li>
@@ -737,7 +737,7 @@ numero: .word 42
 </ul>
 <hr />
 <h1 id="2-labels-label-como-ponteiros">2. Labels (label:) como ponteiros</h1>
-<p>Um <strong>label</strong> (primeira ocorrência: rótulo) é apenas um <strong>nome associado a um endereço</strong> na memória.</p>
+<p>Um <strong>label</strong> (rótulo) é apenas um <strong>nome associado a um endereço</strong> na memória.</p>
 <p>Ele funciona como um <strong>ponteiro</strong> em C:</p>
 <pre><code>label  -----&gt;  endereço onde o dado está colocado
 </code></pre>
@@ -765,7 +765,7 @@ O label contém o <strong>endereço</strong> onde o valor está.</p>
 </code></pre>
 <hr />
 <h2 id="asciz-texto"><code>.asciz "texto"</code></h2>
-<p>A diretiva <strong><code>.asciz</code></strong> (<em>ASCII zero-terminated</em> — primeira ocorrência) grava a string <strong>seguida de um byte zero</strong>, exatamente como em C.</p>
+<p>A diretiva <strong><code>.asciz</code></strong> (<em>ASCII zero-terminated</em>) grava a string <strong>seguida de um byte zero</strong>, exatamente como em C.</p>
 <p>Exemplo:</p>
 <pre><code class="language-asm">msg: .asciz &quot;Hello&quot;
 </code></pre>
@@ -773,10 +773,10 @@ O label contém o <strong>endereço</strong> onde o valor está.</p>
 <pre><code>48 65 6C 6C 6F 00
  H  e  l  l  o \0
 </code></pre>
-<p>O byte zero final (<code>\0</code>) é <strong>obrigatório</strong> para syscalls como <strong>print_string</strong> no simulador RARS (<em>RISC-V Assembler and Runtime Simulator</em> — primeira ocorrência).</p>
+<p>O byte zero final (<code>\0</code>) é <strong>obrigatório</strong> para syscalls como <strong>print_string</strong> no simulador RARS (<em>RISC-V Assembler and Runtime Simulator</em>).</p>
 <hr />
 <h1 id="4-a-sessao-text-onde-ficam-as-instrucoes">4. A sessão <code>.text</code> — onde ficam as instruções</h1>
-<p>A diretiva <strong><code>.text</code></strong> (primeira ocorrência: <em>code section</em>) marca o início do código executável: todas as instruções do programa.</p>
+<p>A diretiva <strong><code>.text</code></strong> (<em>code section</em>) marca o início do código executável: todas as instruções do programa.</p>
 <p>Exemplo:</p>
 <pre><code class="language-asm">.text
 </code></pre>
@@ -794,7 +794,7 @@ O label contém o <strong>endereço</strong> onde o valor está.</p>
 <p>O RARS procura por um rótulo específico para começar a execução:</p>
 <pre><code>main:
 </code></pre>
-<p>Esse é o <strong>entry point</strong> (primeira ocorrência: ponto de entrada).</p>
+<p>Esse é o <strong>entry point</strong> (ponto de entrada).</p>
 <p>Exemplo completo:</p>
 <pre><code class="language-asm">.text
 .globl main     # .globl (global): torna 'main' visível como ponto de entrada
@@ -804,7 +804,7 @@ main:
     li a7, 1
     ecall
 </code></pre>
-<p>A diretiva <code>.globl</code> (primeira ocorrência: <em>global symbol</em>) informa ao montador que este rótulo deve ser acessível como símbolo externo — é assim que o RARS sabe que <code>main</code> é seu ponto de início.</p>
+<p>A diretiva <code>.globl</code> (<em>global symbol</em>) informa ao montador que este rótulo deve ser acessível como símbolo externo — é assim que o RARS sabe que <code>main</code> é seu ponto de início.</p>
 <hr />
 <h1 id="6-carregar-enderecos-com-la-load-address">6. Carregar endereços com <code>la</code> (load address)</h1>
 <p>A pseudo-instrução <strong><code>la</code></strong> (<em>load address</em>) carrega o <strong>endereço associado a um label</strong> em um registrador.</p>

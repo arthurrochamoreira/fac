@@ -709,12 +709,12 @@
 
 <h1 id="modulo-3-registradores-do-rv32i"><strong>Módulo 3 — Registradores do RV32I</strong></h1>
 <p>O conjunto RV32I possui <strong>32 registradores inteiros</strong>, cada um com um papel definido pela <em>ABI</em>
-(<em>Application Binary Interface</em>, primeira ocorrência).
+(<em>Application Binary Interface</em>).
 A ABI determina <strong>como funções recebem argumentos</strong>, <strong>como retornam valores</strong>, <strong>quais registradores podem ser sobrescritos</strong> e <strong>quais devem ser preservados</strong>.</p>
 <p>Este módulo apresenta:</p>
 <ul>
 <li>as categorias de registradores (<code>a*</code>, <code>t*</code>, <code>s*</code>, <code>zero</code>)</li>
-<li>como funcionam no <em>calling convention</em> (primeira ocorrência: convenção de chamada)</li>
+<li>como funcionam no <em>calling convention</em> (convenção de chamada)</li>
 <li>por que usamos <code>a0</code>, <code>a7</code>, <code>t0</code> etc.</li>
 <li>o que é o registrador <code>sp</code> e como ele forma a pilha</li>
 </ul>
@@ -808,7 +808,7 @@ jal ra, dobro    # chama função
 </code></pre>
 <hr />
 <h1 id="4-registradores-t-temporary-registers"><strong>4. Registradores <code>t*</code> — Temporary Registers</strong></h1>
-<p>Os registradores <code>t0–t6</code> (<em>temporary registers</em>, primeira ocorrência) são temporários:</p>
+<p>Os registradores <code>t0–t6</code> (<em>temporary registers</em>) são temporários:</p>
 <ul>
 <li>a função <strong>pode sobrescrevê-los livremente</strong></li>
 <li>não precisam ser preservados na pilha</li>
@@ -827,7 +827,7 @@ addi t0, t0, 1    # t0 = 6
 </code></pre>
 <hr />
 <h1 id="5-registradores-s-saved-registers"><strong>5. Registradores <code>s*</code> — Saved Registers</strong></h1>
-<p>Registradores <code>s0–s11</code> (<em>saved registers</em>, primeira ocorrência) são usados quando um valor precisa <strong>sobreviver a chamadas de função</strong>.</p>
+<p>Registradores <code>s0–s11</code> (<em>saved registers</em>) são usados quando um valor precisa <strong>sobreviver a chamadas de função</strong>.</p>
 <p>Regra da ABI:</p>
 <blockquote>
 <p>Se uma função <strong>modificar</strong> um registrador <code>s*</code>, ela é obrigada a salvá-lo na pilha e restaurá-lo antes de retornar.</p>
@@ -844,8 +844,8 @@ ret
 </code></pre>
 <hr />
 <h1 id="6-registrador-sp-stack-pointer"><strong>6. Registrador <code>sp</code> — Stack Pointer</strong></h1>
-<p><code>sp</code> (<em>stack pointer</em>, primeira ocorrência) aponta para o <strong>topo da pilha</strong>.</p>
-<p>A pilha é uma região de memória com comportamento <strong>LIFO</strong> (<em>last in, first out</em>, primeira ocorrência).</p>
+<p><code>sp</code> (<em>stack pointer</em>) aponta para o <strong>topo da pilha</strong>.</p>
+<p>A pilha é uma região de memória com comportamento <strong>LIFO</strong> (<em>last in, first out</em>).</p>
 <h3 id="61-como-a-pilha-cresce"><strong>6.1 Como a pilha cresce</strong></h3>
 <p>A pilha cresce para <strong>endereços menores</strong>:</p>
 <pre><code class="language-asm">addi sp, sp, -16   # reserva 16 bytes

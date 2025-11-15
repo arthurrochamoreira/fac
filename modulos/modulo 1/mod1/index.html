@@ -712,7 +712,7 @@
 o que é uma ISA, por que começamos pelo conjunto RV32I, como funciona o simulador RARS e como o processador enxerga memória, dados e instruções.</p>
 <hr />
 <h1 id="1-o-que-e-risc-v"><strong>1. O que é RISC-V?</strong></h1>
-<p>RISC-V é uma <strong>arquitetura de conjunto de instruções</strong> (ISA — <em>Instruction Set Architecture</em>, primeira ocorrência).
+<p>RISC-V é uma <strong>arquitetura de conjunto de instruções</strong> (ISA — <em>Instruction Set Architecture</em>).
 Uma <strong>ISA</strong> é o conjunto de comandos que o processador entende <strong>no nível mais baixo</strong>, como:</p>
 <ul>
 <li>somar valores</li>
@@ -721,7 +721,7 @@ Uma <strong>ISA</strong> é o conjunto de comandos que o processador entende <st
 <li>comparar números</li>
 <li>executar operações lógicas</li>
 </ul>
-<p>O termo <strong>RISC</strong> significa <em>Reduced Instruction Set Computer</em> (primeira ocorrência):
+<p>O termo <strong>RISC</strong> significa <em>Reduced Instruction Set Computer</em>:
 uma filosofia de projeto que preza por instruções simples, diretas e rápidas.</p>
 <p>O <strong>“V”</strong> indica que esta é a quinta geração da família RISC dessa linha de pesquisa.</p>
 <hr />
@@ -730,7 +730,7 @@ uma filosofia de projeto que preza por instruções simples, diretas e rápidas.
 <ul>
 <li><strong>RV</strong> — <em>RISC-V</em></li>
 <li><strong>32</strong> — registradores e endereços possuem <strong>32 bits</strong></li>
-<li><strong>I</strong> — conjunto básico de instruções inteiras (<em>Integer</em>, primeira ocorrência)</li>
+<li><strong>I</strong> — conjunto básico de instruções inteiras (<em>Integer</em>)</li>
 </ul>
 <p>O RV32I é:</p>
 <ul>
@@ -743,10 +743,10 @@ uma filosofia de projeto que preza por instruções simples, diretas e rápidas.
 <hr />
 <h1 id="3-o-que-e-um-simulador-rars"><strong>3. O que é um simulador (RARS)</strong></h1>
 <p>Para programar em RISC-V sem comprar um chip físico, usamos o <strong>RARS</strong>
-(<em>RISC-V Assembler and Runtime Simulator</em>, primeira ocorrência).</p>
+(<em>RISC-V Assembler and Runtime Simulator</em>).</p>
 <p>O RARS permite:</p>
 <h3 id="31-montar-o-codigo"><strong>3.1 Montar o código</strong></h3>
-<p>O montador (<em>assembler</em>, primeira ocorrência) converte o código <code>.asm</code> em instruções binárias reais da ISA.</p>
+<p>O montador (<em>assembler</em>) converte o código <code>.asm</code> em instruções binárias reais da ISA.</p>
 <h3 id="32-executar-o-programa"><strong>3.2 Executar o programa</strong></h3>
 <p>O simulador roda o binário e mostra o fluxo do programa.</p>
 <h3 id="33-inspecionar-registradores-e-memoria"><strong>3.3 Inspecionar registradores e memória</strong></h3>
@@ -759,26 +759,26 @@ uma filosofia de projeto que preza por instruções simples, diretas e rápidas.
 <hr />
 <h1 id="4-estrutura-geral-de-um-programa-asm"><strong>4. Estrutura geral de um programa <code>.asm</code></strong></h1>
 <p>Um programa típico possui duas sessões principais:</p>
-<h2 id="41-sessao-data-data-section-primeira-ocorrencia"><strong>4.1 Sessão <code>.data</code> (data section, primeira ocorrência)</strong></h2>
+<h2 id="41-sessao-data-data-section"><strong>4.1 Sessão <code>.data</code> (data section)</strong></h2>
 <p>Armazena dados estáticos, como números, vetores e strings.</p>
 <p>Exemplo:</p>
 <pre><code class="language-asm">.data
 msg: .asciz &quot;Hello!\n&quot;
 x:   .word 42
 </code></pre>
-<h2 id="42-sessao-text-text-section-primeira-ocorrencia"><strong>4.2 Sessão <code>.text</code> (text section, primeira ocorrência)</strong></h2>
+<h2 id="42-sessao-text-text-section"><strong>4.2 Sessão <code>.text</code> (text section)</strong></h2>
 <p>Armazena o <strong>código executável</strong>.</p>
 <p>Exemplo:</p>
 <pre><code class="language-asm">.text
 .globl main           # .globl (global): define o ponto de entrada
 
 main:
-    li a0, 42         # li = load immediate (primeira ocorrência): coloca 42 em a0
+    li a0, 42         # li = load immediate: coloca 42 em a0
     li a7, 1          # código da syscall print_int
-    ecall             # ecall = environment call (primeira ocorrência)
+    ecall             # ecall = environment call
 </code></pre>
 <h3 id="43-labels"><strong>4.3 Labels</strong></h3>
-<p>Um <strong>label</strong> (primeira ocorrência: rótulo) é um nome que representa um endereço na memória.</p>
+<p>Um <strong>label</strong> (rótulo) é um nome que representa um endereço na memória.</p>
 <p>Exemplo:</p>
 <pre><code>msg:
 </code></pre>
@@ -812,7 +812,7 @@ main:
 <h1 id="6-como-o-processador-executa-um-programa"><strong>6. Como o processador executa um programa</strong></h1>
 <p>O processador possui:</p>
 <ul>
-<li><strong>PC</strong> (<em>program counter</em>, primeira ocorrência):
+<li><strong>PC</strong> (<em>program counter</em>):
   registrador que aponta para a <strong>próxima instrução</strong> a ser executada.</li>
 </ul>
 <p>O ciclo básico é:</p>
