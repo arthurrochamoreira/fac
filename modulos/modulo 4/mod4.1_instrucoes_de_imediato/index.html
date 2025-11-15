@@ -1,0 +1,1436 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../modulo%203/mod3/">
+      
+      
+        <link rel="next" href="../mod4.2_movimentacoes_de_dados/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Modulo 4.1 - Fundamentos de Arquitetura de Computadores</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/custom-general.css">
+    
+      <link rel="stylesheet" href="../../../css/night-sky.css">
+    
+      <link rel="stylesheet" href="../../../css/shooting-stars.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-4-instrucoes-de-imediato-li-addi" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="Fundamentos de Arquitetura de Computadores" class="md-header__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Arquitetura de Computadores
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modulo 4.1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%201/mod1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%202/mod2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%203/mod3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Modulo 4
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Fundamentos de Arquitetura de Computadores" class="md-nav__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Arquitetura de Computadores
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%201/mod1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%202/mod2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%203/mod3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modulo 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-e-um-valor-imediato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. O que é um “valor imediato”?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-a-pseudo-instrucao-li-load-immediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. A pseudo-instrução li — load immediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. A pseudo-instrução li — load immediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-o-montador-expande-li" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como o montador expande li
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-a-instrucao-addi-add-immediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. A instrução addi — add immediate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-usos-comuns-de-li-e-addi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Usos comuns de li e addi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Usos comuns de li e addi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-inicializar-variaveis-em-registradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Inicializar “variáveis” em registradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-criar-loops-com-incrementos-e-decrementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Criar loops com incrementos e decrementos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-manipular-ponteiros-enderecos-em-vetores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Manipular ponteiros (endereços) em vetores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-criar-deslocamentos-para-calculos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Criar deslocamentos para cálculos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-exemplos-completos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Exemplos completos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Exemplos completos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-incremento-simples-com-limite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Incremento simples com limite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-decremento-ate-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Decremento até zero
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-somando-com-imediatos-e-usando-addsub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Somando com imediatos e usando add/sub
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-percorrer-vetor-usando-addi-para-andar-na-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Percorrer vetor usando addi para andar na memória
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exercicios-para-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Exercícios para fixação
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.2_movimentacoes_de_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.3_aritmetica_basica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.4_comparacoes_e_desvios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.5_saltos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-o-que-e-um-valor-imediato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. O que é um “valor imediato”?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-a-pseudo-instrucao-li-load-immediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. A pseudo-instrução li — load immediate
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. A pseudo-instrução li — load immediate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-o-montador-expande-li" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como o montador expande li
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-a-instrucao-addi-add-immediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. A instrução addi — add immediate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-usos-comuns-de-li-e-addi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Usos comuns de li e addi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Usos comuns de li e addi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-inicializar-variaveis-em-registradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Inicializar “variáveis” em registradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-criar-loops-com-incrementos-e-decrementos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Criar loops com incrementos e decrementos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-manipular-ponteiros-enderecos-em-vetores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Manipular ponteiros (endereços) em vetores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-criar-deslocamentos-para-calculos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Criar deslocamentos para cálculos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-exemplos-completos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Exemplos completos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Exemplos completos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-incremento-simples-com-limite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Incremento simples com limite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-decremento-ate-zero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Decremento até zero
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-somando-com-imediatos-e-usando-addsub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Somando com imediatos e usando add/sub
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-percorrer-vetor-usando-addi-para-andar-na-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Percorrer vetor usando addi para andar na memória
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-exercicios-para-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Exercícios para fixação
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="modulo-4-instrucoes-de-imediato-li-addi">Módulo 4 — Instruções de Imediato (<code>li</code>, <code>addi</code>)</h1>
+<p>As instruções <strong>de imediato</strong> são fundamentais no RISC-V
+(ISA — <em>Instruction Set Architecture</em>: conjunto de instruções que o processador entende),
+porque permitem trabalhar com <strong>valores constantes</strong> sem acessar a memória.</p>
+<p>Neste módulo você vai ver:</p>
+<ul>
+<li>o que é um <strong>imediato</strong> (<em>immediate</em>)</li>
+<li>como carregar um valor constante direto em um registrador com <code>li</code></li>
+<li>como somar um registrador com uma constante usando <code>addi</code></li>
+<li>como aplicar essas instruções em loops, aritmética e ponteiros</li>
+</ul>
+<hr />
+<h2 id="1-o-que-e-um-valor-imediato">1. O que é um “valor imediato”?</h2>
+<p>Primeira ocorrência:</p>
+<p>Um <strong>imediato</strong> (<em>immediate</em>) é um valor <strong>constante</strong> escrito <strong>diretamente na instrução</strong>, e não buscado da memória.</p>
+<p>Exemplo conceitual:</p>
+<pre><code class="language-asm">addi t0, t0, 1     # addi (add immediate): soma o imediato 1 ao valor em t0 e guarda em t0
+</code></pre>
+<p>Aqui:</p>
+<ul>
+<li><code>t0</code> é um registrador temporário (<em>temporary register</em>)</li>
+<li><code>1</code> é o <strong>imediato</strong> embutido na instrução</li>
+</ul>
+<p>Diferente de:</p>
+<pre><code class="language-asm">lw t0, 0(t1)       # lw (load word): carrega da memória
+</code></pre>
+<p>onde o valor vem da <strong>memória</strong>, não está “dentro” da instrução.</p>
+<hr />
+<h2 id="2-a-pseudo-instrucao-li-load-immediate">2. A pseudo-instrução <code>li</code> — <em>load immediate</em></h2>
+<p>Primeira ocorrência:</p>
+<p><code>li</code> (<em>load immediate</em>) é uma <strong>pseudo-instrução</strong> do montador (não existe no hardware real RV32I) que carrega um valor imediato em um registrador.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">li rd, imediato
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p>Colocar o valor constante <code>imediato</code> dentro do registrador <code>rd</code>.</p>
+</blockquote>
+<p>Exemplos:</p>
+<pre><code class="language-asm">li t0, 10           # li (load immediate): coloca o valor imediato 10 no registrador t0
+li a0, -5           # li (load immediate): coloca -5 em a0
+li s1, 2048         # li (load immediate): coloca 2048 em s1
+</code></pre>
+<h3 id="como-o-montador-expande-li">Como o montador expande <code>li</code></h3>
+<p>Como <code>li</code> é uma pseudo-instrução, o montador do RARS (<em>RISC-V Assembler and Runtime Simulator</em>) traduz para uma ou mais instruções reais, por exemplo:</p>
+<ul>
+<li>imediatos pequenos → <code>addi</code></li>
+<li>imediatos grandes → combinação de <code>lui</code> (<em>load upper immediate</em>) + <code>addi</code></li>
+</ul>
+<p>Você <strong>não precisa</strong> se preocupar com isso no começo: use <code>li</code> livremente para carregar constantes.</p>
+<hr />
+<h2 id="3-a-instrucao-addi-add-immediate">3. A instrução <code>addi</code> — <em>add immediate</em></h2>
+<p>Primeira ocorrência:</p>
+<p><code>addi</code> (<em>add immediate</em>) é uma <strong>instrução real</strong> do conjunto RV32I que soma o conteúdo de um registrador com um <strong>imediato de 12 bits</strong> (intervalo de -2048 até +2047).</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">addi rd, rs1, imediato
+</code></pre>
+<p>Interpretação:</p>
+<blockquote>
+<p><code>rd = rs1 + imediato</code></p>
+</blockquote>
+<p>Exemplos:</p>
+<pre><code class="language-asm">addi t0, t0, 1      # addi (add immediate): t0 = t0 + 1  (incremento)
+addi t1, t1, -1     # addi (add immediate): t1 = t1 - 1  (decremento)
+addi a0, a0, 10     # addi (add immediate): a0 = a0 + 10
+addi t2, t0, 4      # addi (add immediate): t2 = t0 + 4
+</code></pre>
+<p>Se o imediato for grande demais para caber em 12 bits, você geralmente usa uma combinação de <code>li</code>, <code>lui</code> + <code>addi</code> — mas para a maioria dos exemplos iniciais, <code>addi</code> é suficiente.</p>
+<hr />
+<h2 id="4-usos-comuns-de-li-e-addi">4. Usos comuns de <code>li</code> e <code>addi</code></h2>
+<h3 id="41-inicializar-variaveis-em-registradores">4.1 Inicializar “variáveis” em registradores</h3>
+<pre><code class="language-asm">li t0, 0            # li (load immediate): inicializa t0 como contador com 0
+li t1, 10           # li (load immediate): define limite 10 em t1
+</code></pre>
+<hr />
+<h3 id="42-criar-loops-com-incrementos-e-decrementos">4.2 Criar loops com incrementos e decrementos</h3>
+<p>Aqui aparece <strong><code>bne</code> (branch if not equal)</strong> pela primeira vez:</p>
+<ul>
+<li><code>bne rs1, rs2, label</code> desvia para <code>label</code> se <code>rs1 != rs2</code>.</li>
+</ul>
+<pre><code class="language-asm">li t0, 5            # t0 começa em 5
+
+loop:
+    addi t0, t0, -1 # addi (add immediate): t0 = t0 - 1  (decrementa)
+    bne t0, x0, loop# bne (branch if not equal): se t0 != 0, volta para 'loop'
+</code></pre>
+<hr />
+<h3 id="43-manipular-ponteiros-enderecos-em-vetores">4.3 Manipular ponteiros (endereços) em vetores</h3>
+<p>Primeira ocorrência de:</p>
+<ul>
+<li><code>.data</code> — diretiva que inicia a <strong>sessão de dados</strong></li>
+<li><code>.text</code> — diretiva que inicia a <strong>sessão de código</strong></li>
+<li><code>la</code> — <em>load address</em>, carrega o <strong>endereço</strong> de um label</li>
+<li><code>lw</code> — <em>load word</em>, lê 4 bytes da memória para um registrador</li>
+</ul>
+<p>Em vetores declarados com <code>.word</code>, cada elemento ocupa <strong>4 bytes</strong>:</p>
+<pre><code class="language-asm">.data
+vetor: .word 10, 20, 30, 40   # vetor de 4 inteiros (4 bytes cada)
+
+.text
+.globl main                   # .globl (global): torna 'main' ponto de entrada
+
+main:
+    la t0, vetor              # la (load address): t0 recebe o endereço do primeiro elemento de 'vetor'
+    lw t1, 0(t0)              # lw (load word): t1 recebe vetor[0]
+    addi t0, t0, 4            # addi: avança o ponteiro para o próximo elemento (vetor[1])
+
+    li a7, 93                 # li: escolhe syscall exit2 (código 93)
+    ecall                     # ecall (environment call): executa a syscall
+</code></pre>
+<hr />
+<h3 id="44-criar-deslocamentos-para-calculos">4.4 Criar deslocamentos para cálculos</h3>
+<pre><code class="language-asm">addi t2, t1, 100    # addi: t2 = t1 + 100 (deslocamento de 100 bytes)
+</code></pre>
+<hr />
+<h2 id="5-exemplos-completos">5. Exemplos completos</h2>
+<h3 id="51-incremento-simples-com-limite">5.1 Incremento simples com limite</h3>
+<p>Primeira ocorrência de <code>blt</code> (<em>branch if less than</em>): desvia se <code>rs1 &lt; rs2</code>.</p>
+<pre><code class="language-asm">li t0, 0                # t0 = 0 (contador)
+li t1, 10               # t1 = 10 (limite)
+
+loop:
+    addi t0, t0, 1      # addi (add immediate): t0 = t0 + 1
+    blt t0, t1, loop    # blt (branch if less than): se t0 &lt; t1, volta para 'loop'
+
+    li a7, 93           # li: escolhe syscall exit2
+    ecall               # encerra o programa
+</code></pre>
+<hr />
+<h3 id="52-decremento-ate-zero">5.2 Decremento até zero</h3>
+<pre><code class="language-asm">li t0, 7                # t0 começa em 7
+
+loop:
+    addi t0, t0, -1     # addi: t0 = t0 - 1
+    bne t0, x0, loop    # bne: enquanto t0 != 0, repete o loop
+
+    li a7, 93
+    ecall
+</code></pre>
+<hr />
+<h3 id="53-somando-com-imediatos-e-usando-addsub">5.3 Somando com imediatos e usando <code>add</code>/<code>sub</code></h3>
+<p>Primeira ocorrência de:</p>
+<ul>
+<li><code>add</code> — <em>add</em>: soma dois registradores
+  <code>add rd, rs1, rs2</code> → <code>rd = rs1 + rs2</code></li>
+<li><code>sub</code> — <em>subtract</em>: subtrai registradores
+  <code>sub rd, rs1, rs2</code> → <code>rd = rs1 - rs2</code></li>
+</ul>
+<pre><code class="language-asm">li t0, 12               # t0 = 12
+li t1, 30               # t1 = 30
+
+addi t2, t1, -12        # addi: t2 = t1 + (-12) = 30 - 12
+add t3, t0, t2          # add (add): t3 = t0 + t2 = 12 + 18
+
+sub t4, t3, t0          # sub (subtract): t4 = t3 - t0 = 30 - 12
+</code></pre>
+<hr />
+<h3 id="54-percorrer-vetor-usando-addi-para-andar-na-memoria">5.4 Percorrer vetor usando <code>addi</code> para andar na memória</h3>
+<pre><code class="language-asm">.data
+vet: .word 3, 6, 9, 12          # vetor com 4 inteiros
+
+.text
+.globl main
+
+main:
+    la t0, vet                  # la: t0 = endereço base de vet
+    li t1, 0                    # t1 = índice i
+    li t2, 4                    # t2 = tamanho (4 elementos)
+
+loop:
+    lw t3, 0(t0)                # lw: t3 = vet[i]
+    # aqui poderíamos fazer algo com t3 (somar, imprimir etc.)
+
+    addi t0, t0, 4              # addi: avança ponteiro para o próximo elemento
+    addi t1, t1, 1              # addi: i = i + 1
+
+    blt t1, t2, loop            # blt: enquanto i &lt; 4, continua no loop
+
+    li a7, 93
+    ecall
+</code></pre>
+<hr />
+<h2 id="6-exercicios-para-fixacao">6. Exercícios para fixação</h2>
+<ol>
+<li>Carregue o valor <strong>57</strong> em <code>a0</code> usando <code>li</code>.</li>
+<li>Some <strong>10</strong> ao registrador <code>t1</code> usando <code>addi</code>.</li>
+<li>Implemente um contador que começa em <strong>1</strong> e vai até <strong>20</strong> usando <code>li</code>, <code>addi</code> e <code>blt</code> ou <code>bne</code>.</li>
+<li>Dado um vetor de 4 <code>word</code>, avance o ponteiro até o último elemento usando <code>addi</code> (de 4 em 4 bytes).</li>
+<li>
+<p>Implemente <code>t3 = (t0 + 4) - (t1 + 7)</code> usando apenas:</p>
+</li>
+<li>
+<p><code>li</code></p>
+</li>
+<li><code>addi</code></li>
+<li><code>add</code></li>
+<li><code>sub</code></li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../../modulo%203/mod3/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Modulo 3">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Modulo 3
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../mod4.2_movimentacoes_de_dados/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Modulo 4.2">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Modulo 4.2
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "navigation.sections", "navigation.index", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+        <script src="../../../js/interactive.js"></script>
+      
+        <script src="../../../js/shooting-stars.js"></script>
+      
+        <script src="../../../js/starfield.js"></script>
+      
+        <script src="../../../js/night-sky.js"></script>
+      
+    
+  </body>
+</html>

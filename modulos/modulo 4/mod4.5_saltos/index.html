@@ -1,0 +1,1193 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../mod4.4_comparacoes_e_desvios/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Modulo 4.5 - Fundamentos de Arquitetura de Computadores</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/custom-general.css">
+    
+      <link rel="stylesheet" href="../../../css/night-sky.css">
+    
+      <link rel="stylesheet" href="../../../css/shooting-stars.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-4-saltos" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="Fundamentos de Arquitetura de Computadores" class="md-header__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Arquitetura de Computadores
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modulo 4.5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%201/mod1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%202/mod2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%203/mod3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../mod4.1_instrucoes_de_imediato/" class="md-tabs__link">
+          
+  
+  
+  Modulo 4
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Fundamentos de Arquitetura de Computadores" class="md-nav__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Arquitetura de Computadores
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%201/mod1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%202/mod2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%203/mod3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modulo 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.1_instrucoes_de_imediato/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.2_movimentacoes_de_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.3_aritmetica_basica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.4_comparacoes_e_desvios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="modulo-4-saltos">Módulo 4 — Saltos</h1>
+<p>(<code>j</code>, <code>jal</code>, <code>jalr</code>)</p>
+<p>Neste módulo você vai aprender como o <strong>RISC-V</strong>
+(RISC-V = <em>Reduced Instruction Set Computer – Five</em>)
+realiza <strong>saltos</strong> (<em>jumps</em>) — mudanças explícitas no fluxo do programa.</p>
+<p>Saltos são essenciais para:</p>
+<ul>
+<li>loops</li>
+<li>funções</li>
+<li>desvios condicionais</li>
+<li>chamadas e retornos entre trechos de código</li>
+</ul>
+<hr />
+<h1 id="1-o-que-e-um-salto">1. O que é um salto?</h1>
+<p>Um <strong>salto</strong> (<em>jump</em>) é uma instrução que altera o <strong>PC</strong>
+(<em>Program Counter</em> — contador de programa), ou seja, o endereço da <strong>próxima instrução</strong> a ser executada.</p>
+<p>Em vez de seguir a execução linear (linha após linha), o processador:</p>
+<blockquote>
+<p>“pula” para outro endereço de código, normalmente marcado por um <strong>rótulo</strong> (<em>label</em>).</p>
+</blockquote>
+<p>Ao contrário das instruções de desvio condicional (<code>beq</code>, <code>bne</code>, etc.),
+os saltos deste módulo são <strong>incondicionais</strong>: sempre acontecem.</p>
+<p>As três instruções principais são:</p>
+<ul>
+<li><strong><code>j</code></strong> — salto incondicional simples (pseudo-instrução)</li>
+<li><strong><code>jal</code></strong> — salto que <strong>guarda o endereço de retorno</strong></li>
+<li><strong><code>jalr</code></strong> — salto indireto via registrador (endereços dinâmicos)</li>
+</ul>
+<hr />
+<h1 id="2-a-pseudo-instrucao-j-jump">2. A pseudo-instrução <code>j</code> — <em>jump</em></h1>
+<p>Primeira ocorrência:</p>
+<p><strong><code>j</code> (jump)</strong> é uma <strong>pseudo-instrução</strong> de salto incondicional.</p>
+<p>Primeira ocorrência do termo:
+<strong>Pseudo-instrução</strong> é uma “instrução de mentira” fornecida pelo montador (assembler):
+ela <strong>não existe no hardware</strong>, mas é automaticamente traduzida para uma ou mais instruções reais.</p>
+<p>No caso de <code>j</code>, o montador converte:</p>
+<pre><code class="language-asm">j label
+</code></pre>
+<p>para:</p>
+<pre><code class="language-asm">jal x0, label
+</code></pre>
+<p>onde:</p>
+<ul>
+<li><code>jal</code> = <strong><code>jal</code> (jump and link)</strong>, instrução real que faz salto e guarda endereço de retorno</li>
+<li><code>x0</code> é o registrador que sempre vale 0; como o retorno é guardado em <code>x0</code>, ele é descartado</li>
+</ul>
+<p>Em português simples:</p>
+<blockquote>
+<p><code>j label</code> = “pula para <code>label</code> e <strong>não</strong> guarda retorno”.</p>
+</blockquote>
+<p>Exemplo:</p>
+<pre><code class="language-asm">j loop      # sempre desvia para o rótulo 'loop'
+</code></pre>
+<hr />
+<h1 id="3-a-instrucao-jal-jump-and-link">3. A instrução <code>jal</code> — <em>jump and link</em></h1>
+<p>Primeira ocorrência:</p>
+<p><strong><code>jal</code> (jump and link)</strong> é uma instrução real da ISA RV32I
+(ISA = <em>Instruction Set Architecture</em>, arquitetura de conjunto de instruções).</p>
+<p>Ela faz <strong>duas coisas</strong> ao mesmo tempo:</p>
+<ol>
+<li><strong>Salva o endereço da próxima instrução</strong> em um registrador destino <code>rd</code>.</li>
+<li><strong>Salta</strong> para o rótulo indicado.</li>
+</ol>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">jal rd, label
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p><code>rd = endereço_da_proxima_instrução</code>
+depois, <strong>PC = endereço_do_label</strong></p>
+</blockquote>
+<p>Uso típico:</p>
+<ul>
+<li><code>rd</code> é o registrador <strong><code>ra</code></strong> (<em>return address</em>), que é o registrador de retorno padrão (<code>x1</code>).</li>
+</ul>
+<p>Exemplo clássico de chamada de função:</p>
+<pre><code class="language-asm">jal ra, funcao    # salva o endereço de retorno em ra e pula para 'funcao'
+</code></pre>
+<p>Para retornar da função, usamos um salto indireto via <code>ra</code>:</p>
+<ul>
+<li>pseudo-instrução <strong><code>ret</code></strong></li>
+<li>ou a forma explícita com <code>jalr</code></li>
+</ul>
+<p>Veremos isso a seguir.</p>
+<hr />
+<h1 id="4-a-instrucao-jalr-jump-and-link-register">4. A instrução <code>jalr</code> — <em>jump and link register</em></h1>
+<p>Primeira ocorrência:</p>
+<p><strong><code>jalr</code> (jump and link register)</strong> é a versão “indireta” de <code>jal</code>:
+em vez de pular para um <strong>label</strong> fixo, ela pula para um <strong>endereço em um registrador</strong>.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">jalr rd, offset(rs1)
+</code></pre>
+<p>Significa:</p>
+<ol>
+<li><code>rd = endereço_da_proxima_instrução</code></li>
+<li><code>PC = rs1 + offset</code></li>
+</ol>
+<p>Em palavras:</p>
+<blockquote>
+<p>Salta para o endereço calculado como <code>rs1 + offset</code> e guarda o endereço de retorno em <code>rd</code>.</p>
+</blockquote>
+<p>Usos comuns:</p>
+<ul>
+<li>retorno de função (via pseudo-instrução <code>ret</code>)</li>
+<li>saltos dinâmicos (tabelas de função, ponteiros de função, etc.)</li>
+</ul>
+<p>Exemplo de retorno “puro” (sem guardar nada):</p>
+<pre><code class="language-asm">jalr x0, 0(ra)    # PC = ra + 0, não guarda retorno (rd = x0, descartado)
+</code></pre>
+<p>Essa é justamente a forma que o montador usa para implementar a pseudo-instrução:</p>
+<pre><code class="language-asm">ret               # montador: jalr x0, 0(ra)
+</code></pre>
+<hr />
+<h1 id="5-pseudo-instrucoes-relacionadas-jr-ret">5. Pseudo-instruções relacionadas (<code>jr</code>, <code>ret</code>)</h1>
+<p>Primeira ocorrência de cada:</p>
+<ul>
+<li><strong><code>jr rd</code> (jump register)</strong>
+  Pula para o endereço contido em <code>rd</code>, sem guardar retorno.
+  O montador expande:</li>
+</ul>
+<p><code>asm
+  jr rd          # pseudo</code></p>
+<p>para:</p>
+<p><code>asm
+  jalr x0, 0(rd) # salto indireto sem link (sem retorno)</code></p>
+<ul>
+<li><strong><code>ret</code> (return)</strong>
+  Usada como retorno de função, padrão da calling convention do RISC-V.</li>
+</ul>
+<p>O montador expande:</p>
+<p><code>asm
+  ret            # pseudo</code></p>
+<p>para:</p>
+<p><code>asm
+  jalr x0, 0(ra) # PC = ra, não guarda retorno</code></p>
+<p>onde:</p>
+<ul>
+<li><code>ra</code> (<em>return address</em>) é o registrador de retorno (<code>x1</code>), definido na ABI
+  ABI = <em>Application Binary Interface</em>, convenção de chamada entre funções.</li>
+</ul>
+<hr />
+<h1 id="6-exemplos-completos">6. Exemplos completos</h1>
+<p>Nesta seção, além de <code>j</code>, <code>jal</code> e <code>jalr</code>, aparecem algumas instruções e diretivas:</p>
+<ul>
+<li><code>li rd, imm</code> — <strong><code>li</code> (load immediate)</strong>: carrega o valor imediato <code>imm</code> no registrador <code>rd</code>.
+  Ex.: <code>li t0, 0</code> coloca 0 em <code>t0</code>.</li>
+<li><code>addi rd, rs1, imm</code> — <strong><code>addi</code> (add immediate)</strong>: soma imediato a registrador.
+  Ex.: <code>addi t0, t0, 1</code> → <code>t0 = t0 + 1</code>.</li>
+<li><code>blt rs1, rs2, label</code> — <strong><code>blt</code> (branch if less than)</strong>: desvia se <code>rs1 &lt; rs2</code>.</li>
+<li><code>.text</code> — início da <strong>sessão de código</strong> (onde ficam instruções executáveis).</li>
+<li><code>.data</code> — início da <strong>sessão de dados</strong> (variáveis, strings, etc.).</li>
+<li><code>.globl main</code> — torna <code>main</code> visível como <strong>ponto de entrada</strong>.</li>
+<li><code>.asciz</code> — string ASCII terminada em byte zero (<code>\0</code>).</li>
+<li><code>la rd, label</code> — <strong><code>la</code> (load address)</strong>: pseudo-instrução que carrega o endereço do rótulo <code>label</code> em <code>rd</code>.</li>
+<li><code>ecall</code> — <strong>environment call</strong>: dispara uma syscall configurada em <code>a7</code>.</li>
+<li><code>a7</code> — registrador que indica <strong>qual syscall</strong> será chamada (no RARS).</li>
+</ul>
+<hr />
+<h2 id="61-exemplo-simples-usando-j">6.1 Exemplo simples usando <code>j</code></h2>
+<p>Loop que incrementa um contador até 5 usando <code>j</code> para voltar:</p>
+<pre><code class="language-asm">.text
+.globl main
+
+main:
+    li t0, 0                # li (load immediate): t0 = 0
+
+loop:
+    addi t0, t0, 1          # addi (add immediate): t0 = t0 + 1
+
+    li t1, 5                # t1 = 5
+    blt t0, t1, loop        # blt (branch if less than): se t0 &lt; 5, volta pro rótulo 'loop'
+
+    # chegou aqui quando t0 &gt;= 5
+fim:
+    li a7, 93               # li: a7 = 93 → syscall exit2 (encerrar programa)
+    ecall                   # ecall (environment call): executa a syscall
+</code></pre>
+<p>Versão com <code>j</code> para loop <strong>incondicional</strong>:</p>
+<pre><code class="language-asm">.text
+.globl main
+
+main:
+    li t0, 0
+
+loop:
+    addi t0, t0, 1          # t0++
+    j loop                  # j (jump): volta para o rótulo 'loop' para sempre (loop infinito)
+</code></pre>
+<hr />
+<h2 id="62-funcao-simples-usando-jal-e-ret">6.2 Função simples usando <code>jal</code> e <code>ret</code></h2>
+<p>Programa que chama uma função <code>ola</code> que imprime uma mensagem:</p>
+<pre><code class="language-asm">.data
+msg: .asciz &quot;Ola!\n&quot;        # .asciz: string terminada em 0
+
+.text
+.globl main
+
+main:
+    jal ra, ola             # jal (jump and link): salva retorno em ra e salta para 'ola'
+
+    li a7, 93               # exit2
+    ecall
+
+ola:
+    la a0, msg              # la (load address): a0 = endereço de 'msg'
+    li a7, 4                # 4 = syscall print_string
+    ecall                   # imprime &quot;Ola!\n&quot;
+
+    ret                     # ret: jalr x0, 0(ra) → volta para depois do jal em main
+</code></pre>
+<hr />
+<h2 id="63-chamadas-aninhadas-com-jal-e-ret">6.3 Chamadas aninhadas com <code>jal</code> e <code>ret</code></h2>
+<p>Aqui vemos <code>main</code> chamando <code>A</code>, que chama <code>B</code>, que chama <code>C</code>:</p>
+<pre><code class="language-asm">.text
+.globl main
+
+main:
+    jal ra, A               # chama A
+    li a7, 93               # exit2
+    ecall
+
+A:
+    jal ra, B               # chama B
+    ret                     # retorna para main
+
+B:
+    jal ra, C               # chama C
+    ret                     # retorna para A
+
+C:
+    ret                     # retorna para B
+</code></pre>
+<p>Em cada nível, o endereço de retorno é automaticamente gerenciado em <code>ra</code>,
+de acordo com a convenção de chamada (ABI).</p>
+<hr />
+<h2 id="64-uso-de-jalr-para-saltos-indiretos">6.4 Uso de <code>jalr</code> para saltos indiretos</h2>
+<p>Exemplo didático de salto indireto:</p>
+<pre><code class="language-asm">.data
+msg: .asciz &quot;Salto indireto executado!\n&quot;
+
+.text
+.globl main
+
+main:
+    la t0, destino          # la: t0 recebe o endereço do rótulo 'destino'
+    jalr ra, 0(t0)          # jalr: salva retorno em ra e salta para endereço em t0
+                            # ou seja, salta para 'destino'
+
+    li a7, 93               # exit2
+    ecall
+
+destino:
+    la a0, msg              # a0 = endereço da string
+    li a7, 4                # 4 = print_string
+    ecall                   # imprime &quot;Salto indireto executado!\n&quot;
+    ret                     # volta para depois do jalr em main
+</code></pre>
+<hr />
+<h1 id="7-comparacao-entre-j-jal-e-jalr">7. Comparação entre <code>j</code>, <code>jal</code> e <code>jalr</code></h1>
+<table>
+<thead>
+<tr>
+<th>Instrução</th>
+<th>Tipo de salto</th>
+<th>Guarda endereço de retorno?</th>
+<th>Destino é label fixo?</th>
+<th>Destino via registrador?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>j</code></td>
+<td>incondicional</td>
+<td>❌ não</td>
+<td>✔ sim</td>
+<td>❌ não</td>
+</tr>
+<tr>
+<td><code>jal</code></td>
+<td>incondicional</td>
+<td>✔ sim (em <code>rd</code>)</td>
+<td>✔ sim</td>
+<td>❌ não</td>
+</tr>
+<tr>
+<td><code>jalr</code></td>
+<td>incondicional</td>
+<td>✔ sim (em <code>rd</code>)</td>
+<td>❌ não</td>
+<td>✔ sim (<code>rs1 + offset</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="8-exercicios-para-fixacao">8. Exercícios para fixação</h1>
+<p>Use o <strong>RARS (RISC-V Assembler and Runtime Simulator)</strong> para montar e testar cada exercício.
+Sempre que usar syscalls:</p>
+<ul>
+<li>lembre que <code>a7</code> define <strong>qual syscall</strong> (por exemplo, <code>4</code> = print_string, <code>1</code> = print_int, <code>93</code> = exit2),</li>
+<li><code>a0</code> normalmente carrega o <strong>argumento</strong> (string ou inteiro),</li>
+<li>e <code>ecall</code> executa a syscall.</li>
+</ul>
+<hr />
+<h2 id="exercicio-1-saltos-simples-com-j">Exercício 1 — Saltos simples com <code>j</code></h2>
+<p>Crie um programa que:</p>
+<ol>
+<li>Imprima <code>"A\n"</code>.</li>
+<li>Use <code>j</code> para pular diretamente para o rótulo <code>C</code>.</li>
+<li>No meio do código, coloque uma impressão <code>"B\n"</code> que <strong>não deve ser executada</strong>.</li>
+<li>No rótulo <code>C</code>, imprima <code>"C\n"</code>.</li>
+<li>Encerre o programa com a syscall <code>exit2</code> (código 93 em <code>a7</code>).</li>
+</ol>
+<p>Dica de estrutura:</p>
+<pre><code class="language-asm">.data
+msgA: .asciz &quot;A\n&quot;
+msgB: .asciz &quot;B\n&quot;
+msgC: .asciz &quot;C\n&quot;
+
+.text
+.globl main
+
+main:
+    # imprime A
+    # j C
+    # imprime B (não deve rodar)
+C:
+    # imprime C
+    # exit
+</code></pre>
+<hr />
+<h2 id="exercicio-2-funcao-quadradon-com-jal-e-ret">Exercício 2 — Função <code>quadrado(n)</code> com <code>jal</code> e <code>ret</code></h2>
+<p>Implemente uma função <code>quadrado</code> em RISC-V que:</p>
+<ul>
+<li>recebe um inteiro <code>n</code> em <code>a0</code>,</li>
+<li>devolve <code>n * n</code> em <code>a0</code>.</li>
+</ul>
+<p>Regras:</p>
+<ol>
+<li>Em <code>main</code>, carregue um valor em <code>a0</code> (por exemplo, 7).</li>
+<li>Chame a função com <code>jal ra, quadrado</code>.</li>
+<li>Ao retornar, imprima o resultado com <code>print_int</code> (syscall 1).</li>
+<li>Use <code>ret</code> dentro da função para voltar.</li>
+</ol>
+<p>Sugestão de lógica da função:</p>
+<pre><code class="language-asm">quadrado:
+    # pode usar algum registrador temporário t0
+    # a0 = a0 * a0  (pode ser soma repetida ou multiplicação se você já tiver)
+    ret
+</code></pre>
+<p><em>(Se ainda não viu multiplicação, pode usar somas sucessivas só pra fins didáticos.)</em></p>
+<hr />
+<h2 id="exercicio-3-chamada-indireta-com-jalr">Exercício 3 — Chamada indireta com <code>jalr</code></h2>
+<p>Faça um programa que:</p>
+<ol>
+<li>Carregue em <code>t0</code> o endereço de uma função <code>f1</code> usando <code>la</code>.</li>
+<li>Use <code>jalr ra, 0(t0)</code> para pular até <code>f1</code>.</li>
+<li>Dentro de <code>f1</code>, imprima uma mensagem, por exemplo <code>"Chamado por jalr!\n"</code>.</li>
+<li>Retorne com <code>ret</code>.</li>
+<li>Ao voltar em <code>main</code>, encerre o programa com <code>exit2</code>.</li>
+</ol>
+<p>Extensão (opcional): crie duas funções, <code>f1</code> e <code>f2</code>,
+e use uma variável em <code>.data</code> para decidir, em tempo de execução, para qual delas pular com <code>jalr</code>.</p>
+<hr />
+<h2 id="exercicio-4-loop-reescrito-apenas-com-j">Exercício 4 — Loop reescrito apenas com <code>j</code></h2>
+<p>Pegue um loop que use <code>blt</code> ou <code>bne</code> e reescreva para usar <strong>apenas saltos incondicionais</strong> e comparações manuais.</p>
+<p>Exemplo em C:</p>
+<pre><code class="language-c">for (i = 0; i &lt; 5; i++) {
+    // corpo
+}
+</code></pre>
+<p>Sugerido em assembly:</p>
+<ol>
+<li>Iniciar <code>i = 0</code> em <code>t0</code>.</li>
+<li>No início do loop, comparar <code>i</code> com 5.</li>
+<li>Se <code>i &gt;= 5</code>, saltar para o fim usando <code>j</code>.</li>
+<li>Caso contrário, executar o corpo.</li>
+<li>Incrementar <code>i</code> e usar <code>j</code> para voltar ao teste.</li>
+</ol>
+<p>Tente <strong>evitar</strong> <code>blt</code> e reproduzir a lógica usando:</p>
+<ul>
+<li><code>bge</code> (se já tiver visto) <strong>ou</strong></li>
+<li>comparações equivalentes e saltos com <code>j</code>.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../mod4.4_comparacoes_e_desvios/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Modulo 4.4">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Modulo 4.4
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "navigation.sections", "navigation.index", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+        <script src="../../../js/interactive.js"></script>
+      
+        <script src="../../../js/shooting-stars.js"></script>
+      
+        <script src="../../../js/starfield.js"></script>
+      
+        <script src="../../../js/night-sky.js"></script>
+      
+    
+  </body>
+</html>

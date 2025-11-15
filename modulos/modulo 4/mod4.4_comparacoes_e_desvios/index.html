@@ -1,0 +1,1986 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../mod4.3_aritmetica_basica/">
+      
+      
+        <link rel="next" href="../mod4.5_saltos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Modulo 4.4 - Fundamentos de Arquitetura de Computadores</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/custom-general.css">
+    
+      <link rel="stylesheet" href="../../../css/night-sky.css">
+    
+      <link rel="stylesheet" href="../../../css/shooting-stars.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-4-comparacoes-e-desvios" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="Fundamentos de Arquitetura de Computadores" class="md-header__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Arquitetura de Computadores
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modulo 4.4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%201/mod1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%202/mod2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%203/mod3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../mod4.1_instrucoes_de_imediato/" class="md-tabs__link">
+          
+  
+  
+  Modulo 4
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Fundamentos de Arquitetura de Computadores" class="md-nav__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Arquitetura de Computadores
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%201/mod1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%202/mod2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%203/mod3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modulo 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.1_instrucoes_de_imediato/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.2_movimentacoes_de_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.3_aritmetica_basica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.4
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ideia-central-nao-existe-if-so-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ideia central: não existe if, só branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-registradores-e-instrucoes-de-apoio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Registradores e instruções de apoio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instrucoes-de-desvio-basicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Instruções de desvio básicas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Instruções de desvio básicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-beq-rs1-rs2-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 beq rs1, rs2, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-bne-rs1-rs2-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 bne rs1, rs2, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-blt-rs1-rs2-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 blt rs1, rs2, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-bgt-rs1-rs2-label-pseudo-instrucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 bgt rs1, rs2, label (pseudo-instrução)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comparacoes-com-zero-beqz-e-bnez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Comparações com zero: beqz e bnez
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Comparações com zero: beqz e bnez">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-beqz-rs-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 beqz rs, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-bnez-rs-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 bnez rs, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-padrao-de-if-simples-em-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Padrão de IF simples em RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-ifelse-em-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. IF–ELSE em RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-exemplo-completo-negativo-zero-ou-positivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Exemplo completo: negativo, zero ou positivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-exemplo-beqzbnez-dentro-de-um-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Exemplo: beqz/bnez dentro de um loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-traducoes-uteis-de-c-para-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Traduções úteis: de C para RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exercicios-para-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Exercícios para fixação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Exercícios para fixação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-1-igual-ou-diferente-de-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 1 — Igual ou diferente de 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-2-maior-de-dois-numeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 2 — Maior de dois números
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-3-classificar-numero-lido-do-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 3 — Classificar número lido do usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-4-contador-decrescente-com-beqz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 4 — Contador decrescente com beqz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-5-imprimir-apenas-impares-com-bnez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 5 — Imprimir apenas ímpares com bnez
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-6-contar-quantos-valores-sao-maiores-que-50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 6 — Contar quantos valores são maiores que 50
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-7-loop-ate-encontrar-zero-sentinela" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 7 — Loop até encontrar zero (sentinela)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-8-desafio-funcao-sinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 8 (desafio) — Função sinal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mod4.5_saltos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ideia-central-nao-existe-if-so-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ideia central: não existe if, só branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-registradores-e-instrucoes-de-apoio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Registradores e instruções de apoio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-instrucoes-de-desvio-basicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Instruções de desvio básicas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Instruções de desvio básicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-beq-rs1-rs2-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 beq rs1, rs2, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-bne-rs1-rs2-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 bne rs1, rs2, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-blt-rs1-rs2-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 blt rs1, rs2, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-bgt-rs1-rs2-label-pseudo-instrucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 bgt rs1, rs2, label (pseudo-instrução)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-comparacoes-com-zero-beqz-e-bnez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Comparações com zero: beqz e bnez
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Comparações com zero: beqz e bnez">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-beqz-rs-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 beqz rs, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-bnez-rs-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 bnez rs, label
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-padrao-de-if-simples-em-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Padrão de IF simples em RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-ifelse-em-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. IF–ELSE em RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-exemplo-completo-negativo-zero-ou-positivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Exemplo completo: negativo, zero ou positivo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-exemplo-beqzbnez-dentro-de-um-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Exemplo: beqz/bnez dentro de um loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-traducoes-uteis-de-c-para-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Traduções úteis: de C para RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exercicios-para-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Exercícios para fixação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Exercícios para fixação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-1-igual-ou-diferente-de-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 1 — Igual ou diferente de 10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-2-maior-de-dois-numeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 2 — Maior de dois números
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-3-classificar-numero-lido-do-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 3 — Classificar número lido do usuário
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-4-contador-decrescente-com-beqz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 4 — Contador decrescente com beqz
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-5-imprimir-apenas-impares-com-bnez" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 5 — Imprimir apenas ímpares com bnez
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-6-contar-quantos-valores-sao-maiores-que-50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 6 — Contar quantos valores são maiores que 50
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-7-loop-ate-encontrar-zero-sentinela" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 7 — Loop até encontrar zero (sentinela)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-8-desafio-funcao-sinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 8 (desafio) — Função sinal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="modulo-4-comparacoes-e-desvios">Módulo 4 — Comparações e Desvios</h1>
+<p>(<code>beq</code>, <code>bne</code>, <code>blt</code>, <code>bgt</code>, <code>beqz</code>, <code>bnez</code>)</p>
+<p>Este módulo mostra como o <strong>RISC-V</strong>
+(RISC-V = <em>Reduced Instruction Set Computer – Five</em>)
+usa <strong>instruções de desvio</strong> (<em>branch instructions</em>) para tomar decisões.</p>
+<p>É com essas instruções que implementamos, em assembly:</p>
+<ul>
+<li><code>if</code>, <code>else</code></li>
+<li><code>while</code></li>
+<li><code>for</code></li>
+<li>e qualquer tipo de decisão condicional</li>
+</ul>
+<p>Vou assumir que você já tem noção de:</p>
+<ul>
+<li><strong>registradores</strong> (como <code>a0</code>, <code>t0</code>, <code>x0</code>)</li>
+<li>diretivas <strong><code>.data</code></strong> e <strong><code>.text</code></strong></li>
+<li>noções básicas de <strong>syscalls</strong> (<em>system calls</em>) no <strong>RARS</strong>
+  RARS = <em>RISC-V Assembler and Runtime Simulator</em>, um simulador de RISC-V que monta e executa programas <code>.asm</code>.</li>
+</ul>
+<p>Mesmo assim, tudo que aparecer pela primeira vez neste arquivo é explicado.</p>
+<hr />
+<h2 id="1-ideia-central-nao-existe-if-so-branch">1. Ideia central: não existe <code>if</code>, só <em>branch</em></h2>
+<p>Em C:</p>
+<pre><code class="language-c">if (x == y) {
+    // bloco verdadeiro
+} else {
+    // bloco falso
+}
+</code></pre>
+<p>Em RISC-V, o processador <strong>não conhece</strong> a palavra <code>if</code>.
+O que existe é:</p>
+<ol>
+<li>Comparar valores em registradores</li>
+<li>Se a condição for verdadeira, <strong>desviar</strong> para um <strong>rótulo</strong> (<em>label</em>), que é um nome que marca uma posição no código</li>
+<li>Se a condição for falsa, apenas continuar executando a próxima instrução</li>
+</ol>
+<p>Ou seja:</p>
+<blockquote>
+<p>“IF” é só um jeito humano de organizar <strong>branches</strong> (instruções de desvio).</p>
+</blockquote>
+<hr />
+<h2 id="2-registradores-e-instrucoes-de-apoio">2. Registradores e instruções de apoio</h2>
+<p>Dois tipos de registradores aparecem muito em comparações:</p>
+<ul>
+<li><code>x0</code> — registrador especial que <strong>sempre vale 0</strong> (zero “ligado por hardware”, <em>hard-wired zero</em>)</li>
+<li><code>t0</code>, <code>t1</code>, <code>t2</code>… — registradores temporários (<em>temporary registers</em>), usados para cálculos intermediários</li>
+</ul>
+<p>Também vamos usar algumas instruções de apoio (todas explicadas agora na <strong>primeira ocorrência</strong>):</p>
+<ul>
+<li>
+<p><code>li rd, imm</code> — <strong><code>li</code> (load immediate)</strong>: carrega um valor imediato (constante) <code>imm</code> diretamente para o registrador <code>rd</code>.
+  Exemplo: <code>li t0, 10</code> coloca o valor 10 dentro de <code>t0</code>.</p>
+</li>
+<li>
+<p><code>addi rd, rs1, imm</code> — <strong><code>addi</code> (add immediate)</strong>: soma o valor imediato <code>imm</code> ao conteúdo de <code>rs1</code> e guarda o resultado em <code>rd</code>.
+  Exemplo: <code>addi t0, t0, 1</code> faz <code>t0 = t0 + 1</code>.</p>
+</li>
+<li>
+<p><code>j label</code> — <strong><code>j</code> (jump)</strong>: pseudo-instrução de salto incondicional.
+  O montador traduz <code>j label</code> para <code>jal x0, label</code>
+  (<code>jal</code> = <em>jump and link</em>, mas como o destino é <code>x0</code>, o retorno é descartado).</p>
+</li>
+<li>
+<p><code>ecall</code> — <strong><code>ecall</code> (environment call)</strong>: dispara uma syscall (chamada de sistema) configurada no registrador <code>a7</code>.
+  Por exemplo, no RARS: <code>a7 = 4</code> → imprimir string; <code>a7 = 93</code> → encerrar o programa.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-instrucoes-de-desvio-basicas">3. Instruções de desvio básicas</h2>
+<p>As instruções de desvio comparam <strong>dois registradores</strong>. Se a condição for verdadeira, elas pulam para um <strong>rótulo</strong> (<code>label:</code>).</p>
+<h3 id="31-beq-rs1-rs2-label">3.1 <code>beq rs1, rs2, label</code></h3>
+<p><strong><code>beq</code> (branch if equal)</strong> desvia se os registradores forem <strong>iguais</strong>.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">beq rs1, rs2, label
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p>Se <code>rs1 == rs2</code>, pule para <code>label</code>.
+Caso contrário, continue executando a próxima instrução.</p>
+</blockquote>
+<p>Exemplo:</p>
+<pre><code class="language-asm">li t0, 10           # li: t0 = 10
+li t1, 10           # li: t1 = 10
+
+beq t0, t1, iguais  # beq: se t0 == t1, desvia para o rótulo 'iguais'
+</code></pre>
+<hr />
+<h3 id="32-bne-rs1-rs2-label">3.2 <code>bne rs1, rs2, label</code></h3>
+<p><strong><code>bne</code> (branch if not equal)</strong> desvia se os registradores forem <strong>diferentes</strong>.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">bne rs1, rs2, label
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p>Se <code>rs1 != rs2</code>, pule para <code>label</code>.</p>
+</blockquote>
+<p>Exemplo:</p>
+<pre><code class="language-asm">li t0, 5
+li t1, 7
+
+bne t0, t1, sao_diferentes   # bne: como 5 != 7, o desvio acontece
+</code></pre>
+<hr />
+<h3 id="33-blt-rs1-rs2-label">3.3 <code>blt rs1, rs2, label</code></h3>
+<p><strong><code>blt</code> (branch if less than)</strong> desvia se <code>rs1</code> for <strong>menor que</strong> <code>rs2</code>, tratando os valores como <strong>números com sinal</strong> (<em>signed</em>).</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">blt rs1, rs2, label
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p>Se <code>rs1 &lt; rs2</code>, pule para <code>label</code>.</p>
+</blockquote>
+<p>Exemplo:</p>
+<pre><code class="language-asm">li t0, 3
+li t1, 10
+
+blt t0, t1, menor          # blt: como 3 &lt; 10, o desvio acontece
+</code></pre>
+<hr />
+<h3 id="34-bgt-rs1-rs2-label-pseudo-instrucao">3.4 <code>bgt rs1, rs2, label</code> (pseudo-instrução)</h3>
+<p><strong><code>bgt</code> (branch if greater than)</strong> <strong>não existe</strong> como instrução real no conjunto RV32I.
+Ela é uma <strong>pseudo-instrução</strong> criada pelo montador para facilitar a escrita.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">bgt rs1, rs2, label
+</code></pre>
+<p>O montador normalmente converte isso em algo equivalente a:</p>
+<pre><code class="language-asm">blt rs2, rs1, label   # branch if rs2 &lt; rs1 → ou seja, rs1 &gt; rs2
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p>Se <code>rs1 &gt; rs2</code>, pule para <code>label</code>.</p>
+</blockquote>
+<p>Exemplo:</p>
+<pre><code class="language-asm">li t0, 15
+li t1, 7
+
+bgt t0, t1, maior        # bgt: desvia, porque 15 &gt; 7
+</code></pre>
+<hr />
+<h2 id="4-comparacoes-com-zero-beqz-e-bnez">4. Comparações com zero: <code>beqz</code> e <code>bnez</code></h2>
+<p>Comparar um registrador com zero é tão comum que o montador oferece pseudo-instruções especiais.</p>
+<h3 id="41-beqz-rs-label">4.1 <code>beqz rs, label</code></h3>
+<p><strong><code>beqz</code> (branch if equal to zero)</strong> é uma <strong>pseudo-instrução</strong> que desvia se o registrador for igual a zero.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">beqz rs, label
+</code></pre>
+<p>O montador traduz para:</p>
+<pre><code class="language-asm">beq rs, x0, label       # compara com o registrador x0 (constante zero)
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p>Se <code>rs == 0</code>, pule para <code>label</code>.</p>
+</blockquote>
+<p>Exemplo:</p>
+<pre><code class="language-asm">li t0, 0
+beqz t0, eh_zero        # como t0 é 0, o desvio acontece
+</code></pre>
+<hr />
+<h3 id="42-bnez-rs-label">4.2 <code>bnez rs, label</code></h3>
+<p><strong><code>bnez</code> (branch if not equal to zero)</strong> é a versão “diferente de zero”.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">bnez rs, label
+</code></pre>
+<p>O montador traduz para:</p>
+<pre><code class="language-asm">bne rs, x0, label
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p>Se <code>rs != 0</code>, pule para <code>label</code>.</p>
+</blockquote>
+<p>Exemplo:</p>
+<pre><code class="language-asm">li t0, 42
+bnez t0, nao_zero       # como t0 != 0, o desvio acontece
+</code></pre>
+<hr />
+<h2 id="5-padrao-de-if-simples-em-risc-v">5. Padrão de IF simples em RISC-V</h2>
+<p>Vamos representar em C:</p>
+<pre><code class="language-c">if (t0 == 10) {
+    // bloco verdadeiro
+}
+</code></pre>
+<p>Versão típica em RISC-V:</p>
+<pre><code class="language-asm">    li t0, 10                   # t0 = 10
+    li t1, 10                   # valor de comparação
+
+    bne t0, t1, fim_if          # se t0 != 10, pula o bloco verdadeiro
+
+    # bloco verdadeiro (t0 == 10)
+    # ... código do verdadeiro ...
+
+fim_if:
+    # continuação do programa
+</code></pre>
+<p>Estratégia:</p>
+<ul>
+<li>usar <code>bne</code> para <strong>saltar o bloco</strong> quando a condição é falsa</li>
+<li>colocar um rótulo <code>fim_if</code> para marcar o ponto de continuação</li>
+</ul>
+<hr />
+<h2 id="6-ifelse-em-risc-v">6. IF–ELSE em RISC-V</h2>
+<p>Em C:</p>
+<pre><code class="language-c">if (t0 == 10) {
+    // verdadeiro
+} else {
+    // falso
+}
+</code></pre>
+<p>Versão em assembly:</p>
+<pre><code class="language-asm">    li t0, 10
+    li t1, 10
+
+    bne t0, t1, bloco_falso   # se t0 != 10, vai para o bloco falso
+
+bloco_verdadeiro:
+    # aqui t0 == 10
+    # ... código do bloco verdadeiro ...
+    j fim_if                  # j (jump): salto incondicional para 'fim_if'
+
+bloco_falso:
+    # ... código do bloco falso ...
+
+fim_if:
+    # segue o programa
+</code></pre>
+<p>Lembrando:</p>
+<ul>
+<li><code>j</code> é pseudo-instrução de salto incondicional
+  O montador traduz <code>j fim_if</code> para <code>jal x0, fim_if</code>.</li>
+</ul>
+<hr />
+<h2 id="7-exemplo-completo-negativo-zero-ou-positivo">7. Exemplo completo: negativo, zero ou positivo</h2>
+<p>Vamos classificar um número como <strong>negativo</strong>, <strong>zero</strong> ou <strong>positivo</strong> usando instruções de desvio.</p>
+<p>Aqui aparecem algumas diretivas pela primeira vez neste módulo:</p>
+<ul>
+<li><code>.data</code> — início da <strong>sessão de dados</strong>, onde declaramos variáveis e strings.</li>
+<li><code>.text</code> — início da <strong>sessão de código</strong>, onde ficam as instruções.</li>
+<li><code>.globl main</code> — torna o rótulo <code>main</code> o <strong>ponto de entrada</strong> visível externamente.</li>
+<li><code>.asciz</code> — define uma string ASCII terminada com byte zero (<code>\0</code>), formato esperado por algumas syscalls.</li>
+</ul>
+<p>Syscalls usadas (no RARS):</p>
+<ul>
+<li><code>a7 = 4</code> → <strong>print_string</strong> (imprime string apontada por <code>a0</code>)</li>
+<li><code>a7 = 93</code> → <strong>exit2</strong> (encerra o programa)</li>
+</ul>
+<pre><code class="language-asm">.data
+msgNeg:  .asciz &quot;Numero negativo\n&quot;    # .asciz: string terminada em byte 0
+msgZero: .asciz &quot;Numero zero\n&quot;
+msgPos:  .asciz &quot;Numero positivo\n&quot;
+
+.text
+.globl main                            # .globl (global): expõe 'main' como entrada
+
+main:
+    # exemplo: vamos testar o valor -5
+    li t0, -5                          # li: carrega o valor imediato -5 em t0
+
+    blt t0, x0, negativo               # blt: se t0 &lt; 0, desvia para 'negativo'
+    beq t0, x0, eh_zero                # beq: se t0 == 0, desvia para 'eh_zero'
+
+    # se não é &lt; 0 nem == 0, só pode ser positivo
+    la a0, msgPos                      # la (load address): a0 = endereço de msgPos
+    li a7, 4                           # li: a7 = 4 (syscall print_string)
+    ecall                              # ecall: executa a syscall → imprime &quot;Numero positivo&quot;
+    j fim
+
+negativo:
+    la a0, msgNeg
+    li a7, 4
+    ecall
+    j fim
+
+eh_zero:
+    la a0, msgZero
+    li a7, 4
+    ecall
+
+fim:
+    li a7, 93                          # 93 = syscall exit2
+    ecall
+</code></pre>
+<hr />
+<h2 id="8-exemplo-beqzbnez-dentro-de-um-loop">8. Exemplo: <code>beqz</code>/<code>bnez</code> dentro de um loop</h2>
+<p>Agora vamos usar <code>bnez</code> para pular os números <strong>ímpares</strong> e imprimir apenas os <strong>pares</strong> de 1 a 10.</p>
+<p>Nova instrução:</p>
+<ul>
+<li><code>andi rd, rs1, imm</code> — <strong><code>andi</code> (AND immediate)</strong>: faz um AND bit a bit entre <code>rs1</code> e o imediato <code>imm</code> e coloca o resultado em <code>rd</code>.
+  Exemplo: <code>andi t2, t0, 1</code> pega apenas o <strong>bit menos significativo</strong> de <code>t0</code>.</li>
+</ul>
+<p>Lógica:</p>
+<ul>
+<li>se <code>t0 &amp; 1 == 0</code> → número é par</li>
+<li>se <code>t0 &amp; 1 != 0</code> → número é ímpar</li>
+</ul>
+<pre><code class="language-asm">.text
+.globl main
+
+main:
+    li  t0, 1                # t0 = 1 (contador)
+
+loop:
+    andi t2, t0, 1           # andi: t2 = t0 &amp; 1 (isola o bit menos significativo)
+    bnez t2, nao_par         # bnez: se t2 != 0, número é ímpar → pula impressão
+
+    # se chegou aqui, o número é par
+    mv  a0, t0               # mv: copia t0 para a0
+    li  a7, 1                # 1 = syscall print_int (imprimir inteiro)
+    ecall
+
+    # quebra de linha
+    li  a0, 10               # 10 = '\n' em ASCII
+    li  a7, 11               # 11 = syscall print_char
+    ecall
+
+nao_par:
+    addi t0, t0, 1           # addi: t0 = t0 + 1
+    li   t1, 11              # t1 = 11 (limite superior exclusivo)
+    blt  t0, t1, loop        # blt: enquanto t0 &lt; 11, repete o loop
+
+    li   a7, 93              # exit2
+    ecall
+</code></pre>
+<p>Aqui <code>bnez</code> está fazendo exatamente o papel de:</p>
+<pre><code class="language-c">if (t2 != 0) {
+    // não imprime (é ímpar)
+}
+</code></pre>
+<hr />
+<h2 id="9-traducoes-uteis-de-c-para-risc-v">9. Traduções úteis: de C para RISC-V</h2>
+<p>Uma “cola rápida” de condições comuns:</p>
+<ul>
+<li>
+<p><code>if (x == y)</code>
+  → <code>beq x, y, rotulo_verdadeiro</code></p>
+</li>
+<li>
+<p><code>if (x != y)</code>
+  → <code>bne x, y, rotulo_verdadeiro</code></p>
+</li>
+<li>
+<p><code>if (x &lt; y)</code>
+  → <code>blt x, y, rotulo_verdadeiro</code></p>
+</li>
+<li>
+<p><code>if (x &gt; y)</code>
+  → <code>bgt x, y, rotulo_verdadeiro</code>
+  (pseudo-instrução; montador converte em <code>blt y, x, rotulo_verdadeiro</code>)</p>
+</li>
+<li>
+<p><code>if (x == 0)</code>
+  → <code>beqz x, rotulo_verdadeiro</code>
+  (pseudo: <code>beq x, x0, rotulo_verdadeiro</code>)</p>
+</li>
+<li>
+<p><code>if (x != 0)</code>
+  → <code>bnez x, rotulo_verdadeiro</code>
+  (pseudo: <code>bne x, x0, rotulo_verdadeiro</code>)</p>
+</li>
+</ul>
+<hr />
+<h2 id="10-exercicios-para-fixacao">10. Exercícios para fixação</h2>
+<p>Os exercícios abaixo são pensados para treinar <strong>exatamente</strong> as instruções deste módulo:</p>
+<ul>
+<li><code>beq</code>, <code>bne</code>, <code>blt</code>, <code>bgt</code>, <code>beqz</code>, <code>bnez</code></li>
+<li>combinadas com <code>li</code>, <code>addi</code>, <code>j</code>, <code>andi</code>, syscalls simples</li>
+</ul>
+<p>Use o RARS para montar e executar.</p>
+<blockquote>
+<p>Dica geral: no RARS, a syscall de leitura de inteiro
+(<em>read_int</em>) usa o código <strong>5</strong> em <code>a7</code> e devolve o valor em <code>a0</code>.</p>
+</blockquote>
+<hr />
+<h3 id="exercicio-1-igual-ou-diferente-de-10">Exercício 1 — Igual ou diferente de 10</h3>
+<p>Escreva um programa que:</p>
+<ol>
+<li>Coloque um valor em <code>t0</code> usando <code>li</code> (pode testar com 10, depois com 7).</li>
+<li>Compare <code>t0</code> com o valor 10.</li>
+<li>Se <code>t0 == 10</code>, imprima a mensagem:
+   <code>"Valor igual a 10\n"</code>.</li>
+<li>Caso contrário, imprima:
+   <code>"Valor diferente de 10\n"</code>.</li>
+</ol>
+<p><strong>Restrição:</strong> use apenas <code>beq</code> e <code>bne</code> para o desvio.</p>
+<hr />
+<h3 id="exercicio-2-maior-de-dois-numeros">Exercício 2 — Maior de dois números</h3>
+<p>Faça um programa que:</p>
+<ol>
+<li>Coloque dois valores em <code>t0</code> e <code>t1</code> usando <code>li</code>.</li>
+<li>Use <code>bgt</code> (pseudo-instrução) ou a combinação equivalente com <code>blt</code> para descobrir qual é o maior.</li>
+<li>
+<p>Imprima:</p>
+</li>
+<li>
+<p><code>"t0 é maior\n"</code> se <code>t0 &gt; t1</code></p>
+</li>
+<li><code>"t1 é maior ou igual\n"</code> caso contrário</li>
+</ol>
+<p><strong>Sugestão:</strong>
+Use um rótulo <code>t0_maior:</code> para o caso em que <code>t0</code> é maior, e um rótulo <code>fim:</code> para a continuação.</p>
+<hr />
+<h3 id="exercicio-3-classificar-numero-lido-do-usuario">Exercício 3 — Classificar número lido do usuário</h3>
+<p>Escreva um programa que:</p>
+<ol>
+<li>
+<p>Use a syscall de leitura de inteiro (código <strong>5</strong> em <code>a7</code>) para ler um valor digitado pelo usuário.</p>
+</li>
+<li>
+<p>Copie o valor lido de <code>a0</code> para <code>t0</code>.</p>
+</li>
+<li>
+<p>Classifique o número como:</p>
+</li>
+<li>
+<p>negativo (<code>&lt; 0</code>)</p>
+</li>
+<li>zero (<code>== 0</code>)</li>
+<li>
+<p>positivo (<code>&gt; 0</code>)</p>
+</li>
+<li>
+<p>Imprima uma das mensagens:</p>
+</li>
+<li>
+<p><code>"Numero negativo\n"</code></p>
+</li>
+<li><code>"Numero zero\n"</code></li>
+<li><code>"Numero positivo\n"</code></li>
+</ol>
+<p><strong>Restrição:</strong> use apenas <code>blt</code>, <code>beq</code> e <code>j</code> para os desvios.</p>
+<hr />
+<h3 id="exercicio-4-contador-decrescente-com-beqz">Exercício 4 — Contador decrescente com <code>beqz</code></h3>
+<p>Implemente um contador que:</p>
+<ol>
+<li>
+<p>Começa em <strong>10</strong> (por exemplo, em <code>t0</code>).</p>
+</li>
+<li>
+<p>Em cada iteração do loop:</p>
+</li>
+<li>
+<p>imprime o valor atual em <code>t0</code></p>
+</li>
+<li>
+<p>decrementa <code>t0</code> em 1 (<code>addi t0, t0, -1</code>)</p>
+</li>
+<li>
+<p>Usa <code>beqz</code> para parar quando o contador chegar em <strong>0</strong>.</p>
+</li>
+<li>
+<p>Ao final, encerra o programa com a syscall <strong>exit2</strong> (código 93 em <code>a7</code>).</p>
+</li>
+</ol>
+<hr />
+<h3 id="exercicio-5-imprimir-apenas-impares-com-bnez">Exercício 5 — Imprimir apenas ímpares com <code>bnez</code></h3>
+<p>Adapte o exemplo de pares para:</p>
+<ol>
+<li>Contar de <strong>1</strong> até <strong>20</strong>.</li>
+<li>Calcular <code>t0 &amp; 1</code> usando <code>andi</code>.</li>
+<li><strong>Imprimir apenas os números ímpares</strong>, pulando os pares.</li>
+</ol>
+<p><strong>Restrição:</strong> use <code>bnez</code> para decidir se imprime ou não.</p>
+<hr />
+<h3 id="exercicio-6-contar-quantos-valores-sao-maiores-que-50">Exercício 6 — Contar quantos valores são maiores que 50</h3>
+<p>Considere um vetor de 6 inteiros definido em <code>.data</code>, por exemplo:</p>
+<pre><code class="language-asm">.data
+vet: .word 10, 60, 51, 50, 100, 3
+</code></pre>
+<p>Faça um programa que:</p>
+<ol>
+<li>
+<p>Percorra o vetor com um loop (usando ponteiro + <code>addi</code> de 4 em 4).</p>
+</li>
+<li>
+<p>Para cada elemento:</p>
+</li>
+<li>
+<p>compare se o valor é <strong>maior que 50</strong></p>
+</li>
+<li>
+<p>se for, incremente um contador (por exemplo, <code>t2</code>)</p>
+</li>
+<li>
+<p>Ao final, tenha em <code>t2</code> o número de elementos maiores que 50.</p>
+</li>
+<li>
+<p>Imprima esse total usando a syscall de inteiro (código 1 em <code>a7</code>).</p>
+</li>
+</ol>
+<p><strong>Sugestão:</strong>
+Use <code>blt</code> ou <code>bgt</code> (pseudo-instrução) para implementar a comparação <code>valor &gt; 50</code>.</p>
+<hr />
+<h3 id="exercicio-7-loop-ate-encontrar-zero-sentinela">Exercício 7 — Loop até encontrar zero (sentinela)</h3>
+<p>Crie um vetor terminado em 0, por exemplo:</p>
+<pre><code class="language-asm">.data
+valores: .word 3, -1, 7, 9, 0, 5
+</code></pre>
+<p>Escreva um programa que:</p>
+<ol>
+<li>
+<p>Percorra o vetor do começo até encontrar o valor <strong>0</strong>.</p>
+</li>
+<li>
+<p>Para cada valor diferente de 0:</p>
+</li>
+<li>
+<p>some o valor em um acumulador (<code>t2</code>, por exemplo)</p>
+</li>
+<li>
+<p>avance para o próximo elemento</p>
+</li>
+<li>
+<p>Pare o loop assim que encontrar 0, usando <code>beqz</code> ou <code>bnez</code> com o valor lido.</p>
+</li>
+<li>
+<p>Imprima a soma acumulada.</p>
+</li>
+</ol>
+<hr />
+<h3 id="exercicio-8-desafio-funcao-sinal">Exercício 8 (desafio) — Função sinal</h3>
+<p>Implemente uma “função de sinal” em assembly:</p>
+<ul>
+<li>Entrada: um número em <code>a0</code></li>
+<li>Saída: em <code>a0</code></li>
+</ul>
+<p>Definição:</p>
+<ul>
+<li>se <code>a0 &lt; 0</code>, deve retornar <code>-1</code></li>
+<li>se <code>a0 == 0</code>, deve retornar <code>0</code></li>
+<li>se <code>a0 &gt; 0</code>, deve retornar <code>1</code></li>
+</ul>
+<p>Regras:</p>
+<ol>
+<li>
+<p>Implemente isso como um bloco de código com rótulo, por exemplo <code>sinal:</code>.</p>
+</li>
+<li>
+<p>Use apenas:</p>
+</li>
+<li>
+<p><code>blt</code></p>
+</li>
+<li><code>beq</code></li>
+<li><code>li</code></li>
+<li>
+<p><code>j</code></p>
+</li>
+<li>
+<p>No <code>main</code>, teste vários valores chamando esse bloco de código (você pode só “simular” a chamada colocando valores em <code>a0</code> e fazendo <code>j sinal</code> → depois usando outro rótulo para voltar).</p>
+</li>
+</ol>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../mod4.3_aritmetica_basica/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Modulo 4.3">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Modulo 4.3
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../mod4.5_saltos/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Modulo 4.5">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Modulo 4.5
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "navigation.sections", "navigation.index", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+        <script src="../../../js/interactive.js"></script>
+      
+        <script src="../../../js/shooting-stars.js"></script>
+      
+        <script src="../../../js/starfield.js"></script>
+      
+        <script src="../../../js/night-sky.js"></script>
+      
+    
+  </body>
+</html>
