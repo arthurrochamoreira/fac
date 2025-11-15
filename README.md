@@ -7,7 +7,7 @@
 
 ```bash
 git clone https://github.com/arthurrochamoreira/fac
-cd Testes-de-Software
+cd fac
 ```
 
 ---
