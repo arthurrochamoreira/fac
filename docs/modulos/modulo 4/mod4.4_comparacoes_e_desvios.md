@@ -56,7 +56,7 @@ Dois tipos de registradores aparecem muito em comparações:
 * `x0` — registrador especial que **sempre vale 0** (zero “ligado por hardware”, *hard-wired zero*)
 * `t0`, `t1`, `t2`… — registradores temporários (*temporary registers*), usados para cálculos intermediários
 
-Também vamos usar algumas instruções de apoio (todas explicadas agora na **primeira ocorrência**):
+Também vamos usar algumas instruções de apoio:
 
 * `li rd, imm` — **`li` (load immediate)**: carrega um valor imediato (constante) `imm` diretamente para o registrador `rd`.
   Exemplo: `li t0, 10` coloca o valor 10 dentro de `t0`.
