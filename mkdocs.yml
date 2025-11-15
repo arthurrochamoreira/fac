@@ -1,0 +1,71 @@
+site_name: Fundamentos de Arquitetura de Computadores
+repo_url: https://github.com/arthurrochamoreira/fac
+repo_name: fac
+extra_css:
+  - css/custom-general.css
+  - css/night-sky.css
+  - css/shooting-stars.css
+extra_javascript:
+  - https://code.jquery.com/jquery-3.6.0.min.js
+  - js/interactive.js
+  - js/shooting-stars.js
+  - js/starfield.js
+  - js/night-sky.js
+
+plugins:
+  - search
+  - mermaid2
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.footer
+    - navigation.sections
+    - navigation.index
+    #- toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.code.copy
+    - header.autohide
+    - announce.dismiss
+
+  language: pt-BR
+  font:
+    text: Roboto Mono
+    code: Roboto Mono
+    heading: Montserrat
+
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: deep orange
+
+nav:
+  - Home: index.md
+  - Projetos:
+      - Projeto: Projeto/Projeto.md
+
+nav:
+  - Home: index.md
+  # - MC/DC:
+  #    - Modified Condition/Decision Coverage (MC/DC): aae3/mc_dc.md
+  # - AAE:
+  # - AAE3: aae3/aae3.md
+  - Modulos: 
+      - Modulo 1: mod1.md
+      - Modulo 2: mod2.md
+      - Modulo 3: mod3.md
+      - Modulo 4: mod4.md
+      - Modulo 5: mod5.md
+      - Modulo 6: mod6.md
+      - Modulo 7: mod7.md
+
+  #    - Teste de Unidade: aae3/unit_test.md
+  # - White-Box Testing:
+  #    - Teste Caixa Branca: aae3/white_box_test.md
