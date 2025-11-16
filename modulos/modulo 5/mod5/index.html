@@ -1,0 +1,1569 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../modulo%204/mod4.5_saltos/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Modulo 5 - Fundamentos de Arquitetura de Computadores</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto Mono";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/custom-general.css">
+    
+      <link rel="stylesheet" href="../../../css/night-sky.css">
+    
+      <link rel="stylesheet" href="../../../css/shooting-stars.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#modulo-5-pilha-stack-e-organizacao-da-memoria" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../../.." title="Fundamentos de Arquitetura de Computadores" class="md-header__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fundamentos de Arquitetura de Computadores
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Modulo 5
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%201/mod1/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 1
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%202/mod2/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 2
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../modulo%203/mod3/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 3
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../modulo%204/mod4.1_instrucoes_de_imediato/" class="md-tabs__link">
+          
+  
+  
+  Modulo 4
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Modulo 5
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Fundamentos de Arquitetura de Computadores" class="md-nav__button md-logo" aria-label="Fundamentos de Arquitetura de Computadores" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fundamentos de Arquitetura de Computadores
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/arthurrochamoreira/fac" title="Ir para repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fac
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%201/mod1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%202/mod2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%203/mod3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Modulo 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%204/mod4.1_instrucoes_de_imediato/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%204/mod4.2_movimentacoes_de_dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%204/mod4.3_aritmetica_basica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%204/mod4.4_comparacoes_e_desvios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%204/mod4.5_saltos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 4.5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 5
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-visao-geral-onde-entra-a-pilha-na-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Visão geral: onde entra a pilha na memória?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-o-que-e-a-pilha-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. O que é a pilha (stack)?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-direcao-de-crescimento-da-pilha-no-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Direção de crescimento da pilha no RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-como-reservar-espaco-na-pilha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Como reservar espaço na pilha
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-como-guardar-e-restaurar-valores-na-pilha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Como guardar e restaurar valores na pilha
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Como guardar e restaurar valores na pilha">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-guardando-um-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Guardando um valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-restaurando-esse-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Restaurando esse valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-stack-frame-e-convencao-de-salvamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Stack frame e convenção de salvamento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Stack frame e convenção de salvamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-exemplo-de-stack-frame-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Exemplo de stack frame simples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-exemplo-pratico-salvar-um-numero-na-pilha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Exemplo prático: salvar um número na pilha
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Exemplo prático: salvar um número na pilha">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-codigo-completo-e-comentado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Código completo e comentado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-recapitulando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Recapitulando
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-exercicios-para-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Exercícios para fixação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Exercícios para fixação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-1-salvar-e-restaurar-dois-registradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 1 — Salvar e restaurar dois registradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-2-funcao-que-usa-stack-frame-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 2 — Função que usa stack frame simples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-3-salvar-um-valor-temporario-durante-uma-conta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 3 — Salvar um valor temporário durante uma conta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-visao-geral-onde-entra-a-pilha-na-memoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Visão geral: onde entra a pilha na memória?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-o-que-e-a-pilha-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. O que é a pilha (stack)?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-direcao-de-crescimento-da-pilha-no-risc-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Direção de crescimento da pilha no RISC-V
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-como-reservar-espaco-na-pilha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Como reservar espaço na pilha
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-como-guardar-e-restaurar-valores-na-pilha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Como guardar e restaurar valores na pilha
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Como guardar e restaurar valores na pilha">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-guardando-um-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Guardando um valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-restaurando-esse-valor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Restaurando esse valor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-stack-frame-e-convencao-de-salvamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Stack frame e convenção de salvamento
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Stack frame e convenção de salvamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-exemplo-de-stack-frame-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Exemplo de stack frame simples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-exemplo-pratico-salvar-um-numero-na-pilha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Exemplo prático: salvar um número na pilha
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Exemplo prático: salvar um número na pilha">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-codigo-completo-e-comentado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Código completo e comentado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-recapitulando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Recapitulando
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-exercicios-para-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Exercícios para fixação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Exercícios para fixação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-1-salvar-e-restaurar-dois-registradores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 1 — Salvar e restaurar dois registradores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-2-funcao-que-usa-stack-frame-simples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 2 — Função que usa stack frame simples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-3-salvar-um-valor-temporario-durante-uma-conta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 3 — Salvar um valor temporário durante uma conta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="modulo-5-pilha-stack-e-organizacao-da-memoria">Módulo 5 — Pilha (Stack) e organização da memória</h1>
+<p>Neste módulo você vai aprender:</p>
+<ul>
+<li>o que é a <strong>pilha</strong> (<em>stack</em>)</li>
+<li>em que direção ela cresce na memória</li>
+<li>como <strong>reservar espaço</strong> na pilha</li>
+<li>como <strong>restaurar valores</strong> da pilha</li>
+<li>qual é a <strong>convenção de stack frame</strong> no RISC-V</li>
+<li>um exemplo prático de <strong>salvar e recuperar um número</strong> na pilha</li>
+</ul>
+<p>Vou assumir que você já viu funções com <code>jal</code> (<em>jump and link</em>) e <code>ret</code> (<em>return</em>), mas tudo que aparecer pela primeira vez aqui (sigla ou instrução) vai ser explicado.</p>
+<hr />
+<h2 id="1-visao-geral-onde-entra-a-pilha-na-memoria">1. Visão geral: onde entra a pilha na memória?</h2>
+<p>Quando um programa está rodando, a memória do processo costuma ser organizada em regiões lógicas, entre elas:</p>
+<ul>
+<li><strong>código</strong> (<code>.text</code>) — onde ficam as instruções que o processador executa</li>
+<li><strong>dados estáticos</strong> (<code>.data</code>, <code>.bss</code>) — variáveis globais, constantes, strings</li>
+<li><strong>heap</strong> — área para alocação dinâmica (malloc, new etc., em linguagens de alto nível)</li>
+<li><strong>pilha</strong> (<em>stack</em>) — área usada para chamadas de função, variáveis locais e salvamento de registradores</li>
+</ul>
+<p>Neste módulo vamos focar na <strong>pilha</strong>.</p>
+<hr />
+<h2 id="2-o-que-e-a-pilha-stack">2. O que é a pilha (stack)?</h2>
+<p>A <strong>pilha</strong> (<em>stack</em>) é uma região da memória usada como uma <strong>estrutura LIFO</strong>
+(LIFO = <em>Last In, First Out</em>, “último a entrar, primeiro a sair”).</p>
+<p>Você pode imaginar uma pilha de pratos:</p>
+<ul>
+<li>o <strong>último prato</strong> que você coloca em cima é o <strong>primeiro</strong> que você pega de volta</li>
+<li>na memória, fazemos o mesmo com valores: empilhar e desempilhar</li>
+</ul>
+<p>Na pilha guardamos, principalmente:</p>
+<ul>
+<li>endereços de retorno (<code>ra</code> — <em>return address</em>, registrador de retorno)</li>
+<li>registradores salvos (<code>s0–s11</code> — <em>saved registers</em>, registradores preservados)</li>
+<li>variáveis locais de uma função</li>
+<li>parâmetros extras (quando não cabem em <code>a0–a7</code> — <em>argument registers</em>)</li>
+</ul>
+<hr />
+<h2 id="3-direcao-de-crescimento-da-pilha-no-risc-v">3. Direção de crescimento da pilha no RISC-V</h2>
+<p>No RISC-V (e em muitas arquiteturas), a pilha cresce para <strong>endereços menores</strong>.</p>
+<ul>
+<li><strong><code>sp</code> (stack pointer)</strong> é o registrador que aponta para o <strong>topo da pilha</strong>.</li>
+</ul>
+<p>Regra prática:</p>
+<ul>
+<li>para <strong>reservar espaço</strong> na pilha → diminuímos <code>sp</code></li>
+<li>para <strong>liberar espaço</strong> na pilha → aumentamos <code>sp</code></li>
+</ul>
+<p>Exemplo conceitual:</p>
+<pre><code class="language-text">endereços altos
+      ↑
+      │  (memória)
+      │
+      │      [   ]  
+      │      [   ]  ← valores mais antigos
+      │      [   ]  
+      │      [sp]  ← topo atual da pilha
+      └────────────
+endereços baixos
+</code></pre>
+<p>Quando fazemos:</p>
+<pre><code class="language-asm">addi sp, sp, -4    # addi (add immediate): sp = sp - 4
+</code></pre>
+<p>estamos “empurrando” o topo da pilha 4 bytes para <strong>baixo</strong> na memória e abrindo espaço para guardar algo.</p>
+<hr />
+<h2 id="4-como-reservar-espaco-na-pilha">4. Como reservar espaço na pilha</h2>
+<ul>
+<li><strong><code>addi rd, rs1, imediato</code></strong> — instrução real <code>addi</code> (<em>add immediate</em>), soma um valor constante (<strong>imediato</strong>) ao registrador <code>rs1</code> e guarda o resultado em <code>rd</code>.</li>
+</ul>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">addi rd, rs1, imm   # rd = rs1 + imm
+</code></pre>
+<p>No contexto da pilha, usamos:</p>
+<pre><code class="language-asm">addi sp, sp, -N     # reserva N bytes na pilha
+</code></pre>
+<p>Exemplo: reservar 8 bytes para guardar dois valores de 4 bytes (duas <em>words</em> de 32 bits):</p>
+<pre><code class="language-asm">addi sp, sp, -8    # reserva 8 bytes na pilha
+</code></pre>
+<p>Agora os 8 bytes “abaixo” do novo <code>sp</code> pertencem à função atual.</p>
+<hr />
+<h2 id="5-como-guardar-e-restaurar-valores-na-pilha">5. Como guardar e restaurar valores na pilha</h2>
+<p>Para realmente <strong>guardar</strong> algo na pilha, combinamos:</p>
+<ul>
+<li>ajuste de <code>sp</code> com <code>addi</code></li>
+<li>instruções de acesso à memória: <code>sw</code> e <code>lw</code></li>
+</ul>
+<p>Primeiras ocorrências:</p>
+<ul>
+<li><strong><code>sw rs2, offset(rs1)</code></strong> — <code>sw</code> (<em>store word</em>), grava uma <em>word</em> (32 bits = 4 bytes) da CPU para a memória.
+  Significa: “guardar o conteúdo de <code>rs2</code> na memória no endereço <code>rs1 + offset</code>”.</li>
+<li><strong><code>lw rd, offset(rs1)</code></strong> — <code>lw</code> (<em>load word</em>), lê uma <em>word</em> da memória para a CPU.
+  Significa: “carregar em <code>rd</code> os 4 bytes armazenados em <code>rs1 + offset</code>”.</li>
+</ul>
+<h3 id="51-guardando-um-valor">5.1 Guardando um valor</h3>
+<p>Padrão:</p>
+<pre><code class="language-asm">addi sp, sp, -4     # reserva 4 bytes na pilha
+sw   t0, 0(sp)      # sw (store word): guarda o valor de t0 no topo da pilha
+</code></pre>
+<h3 id="52-restaurando-esse-valor">5.2 Restaurando esse valor</h3>
+<p>Mais tarde:</p>
+<pre><code class="language-asm">lw   t0, 0(sp)      # lw (load word): lê o valor de volta para t0
+addi sp, sp, 4      # libera os 4 bytes usados na pilha
+</code></pre>
+<p>Regra de ouro:</p>
+<blockquote>
+<p>A quantidade que você <strong>subtraiu</strong> de <code>sp</code> para reservar deve ser <strong>somada de volta</strong> para liberar.</p>
+</blockquote>
+<hr />
+<h2 id="6-stack-frame-e-convencao-de-salvamento">6. Stack frame e convenção de salvamento</h2>
+<ul>
+<li>
+<p><strong>Stack frame</strong> é o “pacote” de memória que <strong>cada função</strong> reserva na pilha para armazenar:</p>
+</li>
+<li>
+<p>registradores salvos (<code>s0–s11</code>)</p>
+</li>
+<li>registrador de retorno (<code>ra</code>)</li>
+<li>variáveis locais</li>
+<li>espaço para argumentos extras (se preciso)</li>
+</ul>
+<p>Na <strong>ABI (Application Binary Interface)</strong> do RISC-V, a regra é:</p>
+<ul>
+<li>registradores <strong>salvos</strong> (<code>s0–s11</code>) devem ser <strong>restaurados</strong> pela função que os usa</li>
+<li>se a função chamar outra função com <code>jal</code> (<em>jump and link</em>), ela geralmente precisa salvar <code>ra</code> na pilha</li>
+<li><code>sp</code> deve apontar para o topo do stack frame atual</li>
+</ul>
+<h3 id="61-exemplo-de-stack-frame-simples">6.1 Exemplo de stack frame simples</h3>
+<p>Vamos salvar <code>ra</code> e <code>s0</code> na pilha:</p>
+<pre><code class="language-asm">minha_funcao:
+    addi sp, sp, -8     # reserva 8 bytes na pilha
+    sw   ra, 4(sp)      # guarda ra na pilha (offset 4)
+    sw   s0, 0(sp)      # guarda s0 na pilha (offset 0)
+
+    # --- corpo da função ---
+    # usa s0 como variável local, etc.
+
+    lw   s0, 0(sp)      # restaura s0
+    lw   ra, 4(sp)      # restaura ra
+    addi sp, sp, 8      # libera 8 bytes
+    ret                 # ret (return): montado como jalr x0, 0(ra)
+</code></pre>
+<ul>
+<li><strong><code>ret</code></strong> é uma <strong>pseudo-instrução</strong> de retorno de função.
+  O montador converte para <code>jalr x0, 0(ra)</code> → salto indireto usando o endereço em <code>ra</code>.</li>
+</ul>
+<hr />
+<h2 id="7-exemplo-pratico-salvar-um-numero-na-pilha">7. Exemplo prático: salvar um número na pilha</h2>
+<p>Vamos fazer um programa simples que:</p>
+<ol>
+<li>coloca o valor <code>42</code> em um registrador</li>
+<li>salva esse valor na pilha</li>
+<li>zera o registrador para “provar” que o valor foi perdido</li>
+<li>recupera o valor da pilha para outro registrador</li>
+<li>imprime o valor recuperado</li>
+<li>encerra o programa</li>
+</ol>
+<p>Também vamos usar syscalls do <strong>RARS (RISC-V Assembler and Runtime Simulator)</strong>:</p>
+<p>Primeiras ocorrências aqui:</p>
+<ul>
+<li><strong>Syscall</strong> (<em>system call</em>) — serviço fornecido pelo ambiente do simulador, como imprimir ou ler.</li>
+<li><code>a7</code> — registrador que escolhe <strong>qual syscall</strong> será executada.</li>
+<li><code>a0</code> — registrador usado para <strong>argumento</strong> e <strong>retorno</strong> das syscalls.</li>
+<li><code>ecall</code> — instrução <strong>environment call</strong>, dispara a syscall escolhida em <code>a7</code>.</li>
+</ul>
+<p>Tabela usada:</p>
+<ul>
+<li><code>a7 = 1</code> → <strong>print_int</strong> (imprimir inteiro em <code>a0</code>)</li>
+<li><code>a7 = 11</code> → <strong>print_char</strong> (imprimir caractere em <code>a0</code>)</li>
+<li><code>a7 = 93</code> → <strong>exit2</strong> (encerrar programa)</li>
+</ul>
+<h3 id="71-codigo-completo-e-comentado">7.1 Código completo e comentado</h3>
+<pre><code class="language-asm">.text                      # .text: início da sessão de código (instruções)
+.globl main                # .globl (global): torna 'main' visível como ponto de entrada
+
+main:
+    li   t0, 42            # li (load immediate): coloca o valor 42 no registrador t0
+
+    # --- salvar t0 na pilha ---
+    addi sp, sp, -4        # addi (add immediate): sp = sp - 4, reserva 4 bytes na pilha
+    sw   t0, 0(sp)         # sw (store word): guarda o valor de t0 nesses 4 bytes
+
+    # &quot;perder&quot; o valor original de t0
+    li   t0, 0             # li: agora t0 = 0, valor 42 não está mais no registrador
+
+    # --- recuperar o valor salvo ---
+    lw   t1, 0(sp)         # lw (load word): carrega da pilha para t1 o valor que estava salvo (42)
+    addi sp, sp, 4         # addi: sp = sp + 4, libera os 4 bytes usados na pilha
+
+    # --- imprimir o valor recuperado ---
+    mv   a0, t1            # mv (move): copia o valor de t1 para a0 (argumento da syscall)
+    li   a7, 1             # li: a7 = 1 → syscall print_int (imprimir inteiro)
+    ecall                  # ecall (environment call): executa a syscall, imprime 42
+
+    # opcional: imprimir quebra de linha
+    li   a0, 10            # li: a0 = 10, código ASCII de '\n'
+    li   a7, 11            # li: a7 = 11 → syscall print_char (imprimir caractere)
+    ecall                  # ecall: imprime '\n'
+
+    # --- encerrar programa ---
+    li   a7, 93            # li: a7 = 93 → syscall exit2 (encerrar execução)
+    ecall                  # ecall: encerra o programa
+</code></pre>
+<p>Resumo do que acontece:</p>
+<ul>
+<li>o valor <strong>42</strong> é salvo na memória (pilha), mesmo depois de <code>t0</code> ser alterado</li>
+<li>ao restaurar com <code>lw</code>, recuperamos esse valor em <code>t1</code></li>
+<li>provamos que a pilha é um lugar seguro para <strong>guardar valores temporários</strong></li>
+</ul>
+<hr />
+<h2 id="8-recapitulando">8. Recapitulando</h2>
+<p>Neste módulo você viu:</p>
+<ul>
+<li>o que é a <strong>pilha</strong> (<em>stack</em>) e que ela funciona no modelo <strong>LIFO</strong> (<em>Last In, First Out</em>)</li>
+<li>que o registrador <strong><code>sp</code> (stack pointer)</strong> aponta para o topo da pilha</li>
+<li>que no RISC-V a pilha cresce para <strong>endereços menores</strong></li>
+<li>como <strong>reservar espaço</strong> com <code>addi sp, sp, -N</code></li>
+<li>como <strong>salvar valores</strong> com <code>sw</code> e depois <strong>restaurar</strong> com <code>lw</code></li>
+<li>a ideia de <strong>stack frame</strong>: espaço na pilha reservado por cada função</li>
+<li>como salvar e restaurar <code>ra</code> e registradores salvos (<code>s0–s11</code>) seguindo a <strong>ABI (Application Binary Interface)</strong></li>
+<li>um exemplo completo que empilha um valor, zera o registrador e recupera o valor da pilha</li>
+</ul>
+<hr />
+<h2 id="9-exercicios-para-fixacao">9. Exercícios para fixação</h2>
+<p>Tente fazer no RARS. Se quiser, você pode me mandar suas soluções para correção detalhada.</p>
+<h3 id="exercicio-1-salvar-e-restaurar-dois-registradores">Exercício 1 — Salvar e restaurar dois registradores</h3>
+<p>Implemente um programa que:</p>
+<ol>
+<li>Carregue o valor <code>10</code> em <code>t0</code> e o valor <code>20</code> em <code>t1</code>.</li>
+<li>Salve <strong>ambos</strong> na pilha (use <code>addi sp, sp, -8</code>, <code>sw</code> com offsets diferentes).</li>
+<li>Zere <code>t0</code> e <code>t1</code> com <code>li</code> para simular “perda” dos valores.</li>
+<li>Restaure <code>t0</code> e <code>t1</code> a partir da pilha usando <code>lw</code>.</li>
+<li>Some <code>t0 + t1</code> em <code>t2</code> e imprima o resultado com a syscall <code>print_int</code> (código 1).</li>
+</ol>
+<hr />
+<h3 id="exercicio-2-funcao-que-usa-stack-frame-simples">Exercício 2 — Função que usa stack frame simples</h3>
+<p>Crie:</p>
+<ul>
+<li>
+<p>uma função <code>add5</code> que:</p>
+</li>
+<li>
+<p>recebe um número em <code>a0</code>;</p>
+</li>
+<li>salva <code>ra</code> e <code>s0</code> na pilha;</li>
+<li>copia <code>a0</code> para <code>s0</code> (variável local);</li>
+<li>calcula <code>a0 = s0 + 5</code>;</li>
+<li>restaura <code>s0</code> e <code>ra</code> da pilha;</li>
+<li>
+<p>faz <code>ret</code>.</p>
+</li>
+<li>
+<p>na <code>main</code>:</p>
+</li>
+<li>
+<p>coloque <code>20</code> em <code>a0</code>;</p>
+</li>
+<li>chame <code>add5</code> com <code>jal ra, add5</code>;</li>
+<li>ao voltar, imprima o valor em <code>a0</code> com <code>print_int</code>.</li>
+</ul>
+<hr />
+<h3 id="exercicio-3-salvar-um-valor-temporario-durante-uma-conta">Exercício 3 — Salvar um valor temporário durante uma conta</h3>
+<p>Faça um programa que:</p>
+<ol>
+<li>Calcule <code>t0 = 7</code> e <code>t1 = 9</code> usando <code>li</code>.</li>
+<li>Some <code>t0 + t1</code> e salve o resultado na pilha.</li>
+<li>Em seguida, calcule um novo valor em <code>t0</code> (por exemplo, <code>t0 = 100</code>) e em <code>t1</code> (<code>t1 = 200</code>).</li>
+<li>Restaure da pilha o valor antigo da soma para <code>t2</code>.</li>
+<li>Some <code>t2 + t0 + t1</code> e imprima o resultado final.</li>
+</ol>
+<p>Use sempre a sequência correta:</p>
+<ul>
+<li>ajustar <code>sp</code> com <code>addi</code> antes de <code>sw</code></li>
+<li>usar <code>lw</code> antes de devolver <code>sp</code> ao valor original.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar para o topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../../modulo%204/mod4.5_saltos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Modulo 4.5">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Modulo 4.5
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer", "navigation.sections", "navigation.index", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy", "header.autohide", "announce.dismiss"], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      
+        <script src="../../../js/interactive.js"></script>
+      
+        <script src="../../../js/shooting-stars.js"></script>
+      
+        <script src="../../../js/starfield.js"></script>
+      
+        <script src="../../../js/night-sky.js"></script>
+      
+    
+  </body>
+</html>
