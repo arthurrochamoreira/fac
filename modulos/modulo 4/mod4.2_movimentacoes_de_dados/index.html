@@ -1076,7 +1076,6 @@ Para buscar ou gravar na memória, usamos instruções específicas de <strong>l
 <p>Por isso <code>lw</code> e <code>sw</code> são tão importantes.</p>
 <hr />
 <h2 id="2-mv-mover-valor-entre-registradores">2. <code>mv</code> — mover valor entre registradores</h2>
-<p>Primeira ocorrência:</p>
 <p><code>mv</code> (<em>move</em>) é uma <strong>pseudo-instrução</strong>.
 Pseudo-instrução = instrução que <strong>não existe no hardware</strong>, mas o montador converte automaticamente para uma ou mais instruções reais.</p>
 <p>Sintaxe:</p>
@@ -1098,7 +1097,6 @@ mv a0, t0              # mv (move): copia o valor de t0 para a0
 </code></pre>
 <hr />
 <h2 id="3-lw-load-word-carregar-palavra-da-memoria">3. <code>lw</code> — load word (carregar palavra da memória)</h2>
-<p>Primeira ocorrência:</p>
 <p><code>lw</code> (<em>load word</em>) é uma <strong>instrução real</strong> do conjunto básico RV32I
 (RV32I = versão de 32 bits do RISC-V para inteiros, <em>RISC-V 32-bit Integer</em>).</p>
 <ul>
@@ -1141,7 +1139,6 @@ main:
 </ol>
 <hr />
 <h2 id="4-sw-store-word-armazenar-palavra-na-memoria">4. <code>sw</code> — store word (armazenar palavra na memória)</h2>
-<p>Primeira ocorrência:</p>
 <p><code>sw</code> (<em>store word</em>) grava um valor de 32 bits <strong>da CPU para a memória</strong>.</p>
 <p>Sintaxe:</p>
 <pre><code class="language-asm">sw rs2, offset(rs1)
@@ -1172,7 +1169,6 @@ main:
 </ul>
 <hr />
 <h2 id="5-la-load-address-carregar-endereco">5. <code>la</code> — load address (carregar endereço)</h2>
-<p>Primeira ocorrência:</p>
 <p><code>la</code> (<em>load address</em>) é uma <strong>pseudo-instrução</strong> que carrega o <strong>endereço de um rótulo</strong> (<code>label</code>) para dentro de um registrador.</p>
 <p>Sintaxe:</p>
 <pre><code class="language-asm">la rd, label

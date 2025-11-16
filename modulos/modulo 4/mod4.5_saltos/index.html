@@ -740,10 +740,8 @@ os saltos deste módulo são <strong>incondicionais</strong>: sempre acontecem.<
 </ul>
 <hr />
 <h1 id="2-a-pseudo-instrucao-j-jump">2. A pseudo-instrução <code>j</code> — <em>jump</em></h1>
-<p>Primeira ocorrência:</p>
 <p><strong><code>j</code> (jump)</strong> é uma <strong>pseudo-instrução</strong> de salto incondicional.</p>
-<p>Primeira ocorrência do termo:
-<strong>Pseudo-instrução</strong> é uma “instrução de mentira” fornecida pelo montador (assembler):
+<p><strong>Pseudo-instrução</strong> é uma “instrução de mentira” fornecida pelo montador (assembler):
 ela <strong>não existe no hardware</strong>, mas é automaticamente traduzida para uma ou mais instruções reais.</p>
 <p>No caso de <code>j</code>, o montador converte:</p>
 <pre><code class="language-asm">j label
@@ -765,7 +763,6 @@ ela <strong>não existe no hardware</strong>, mas é automaticamente traduzida p
 </code></pre>
 <hr />
 <h1 id="3-a-instrucao-jal-jump-and-link">3. A instrução <code>jal</code> — <em>jump and link</em></h1>
-<p>Primeira ocorrência:</p>
 <p><strong><code>jal</code> (jump and link)</strong> é uma instrução real da ISA RV32I
 (ISA = <em>Instruction Set Architecture</em>, arquitetura de conjunto de instruções).</p>
 <p>Ela faz <strong>duas coisas</strong> ao mesmo tempo:</p>
@@ -796,7 +793,6 @@ depois, <strong>PC = endereço_do_label</strong></p>
 <p>Veremos isso a seguir.</p>
 <hr />
 <h1 id="4-a-instrucao-jalr-jump-and-link-register">4. A instrução <code>jalr</code> — <em>jump and link register</em></h1>
-<p>Primeira ocorrência:</p>
 <p><strong><code>jalr</code> (jump and link register)</strong> é a versão “indireta” de <code>jal</code>:
 em vez de pular para um <strong>label</strong> fixo, ela pula para um <strong>endereço em um registrador</strong>.</p>
 <p>Sintaxe:</p>
@@ -824,7 +820,6 @@ em vez de pular para um <strong>label</strong> fixo, ela pula para um <strong>en
 </code></pre>
 <hr />
 <h1 id="5-pseudo-instrucoes-relacionadas-jr-ret">5. Pseudo-instruções relacionadas (<code>jr</code>, <code>ret</code>)</h1>
-<p>Primeira ocorrência de cada:</p>
 <ul>
 <li><strong><code>jr rd</code> (jump register)</strong>
   Pula para o endereço contido em <code>rd</code>, sem guardar retorno.

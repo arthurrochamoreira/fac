@@ -1136,7 +1136,6 @@ porque permitem trabalhar com <strong>valores constantes</strong> sem acessar a 
 </ul>
 <hr />
 <h2 id="1-o-que-e-um-valor-imediato">1. O que é um “valor imediato”?</h2>
-<p>Primeira ocorrência:</p>
 <p>Um <strong>imediato</strong> (<em>immediate</em>) é um valor <strong>constante</strong> escrito <strong>diretamente na instrução</strong>, e não buscado da memória.</p>
 <p>Exemplo conceitual:</p>
 <pre><code class="language-asm">addi t0, t0, 1     # addi (add immediate): soma o imediato 1 ao valor em t0 e guarda em t0
@@ -1152,7 +1151,6 @@ porque permitem trabalhar com <strong>valores constantes</strong> sem acessar a 
 <p>onde o valor vem da <strong>memória</strong>, não está “dentro” da instrução.</p>
 <hr />
 <h2 id="2-a-pseudo-instrucao-li-load-immediate">2. A pseudo-instrução <code>li</code> — <em>load immediate</em></h2>
-<p>Primeira ocorrência:</p>
 <p><code>li</code> (<em>load immediate</em>) é uma <strong>pseudo-instrução</strong> do montador (não existe no hardware real RV32I) que carrega um valor imediato em um registrador.</p>
 <p>Sintaxe:</p>
 <pre><code class="language-asm">li rd, imediato
@@ -1175,7 +1173,6 @@ li s1, 2048         # li (load immediate): coloca 2048 em s1
 <p>Você <strong>não precisa</strong> se preocupar com isso no começo: use <code>li</code> livremente para carregar constantes.</p>
 <hr />
 <h2 id="3-a-instrucao-addi-add-immediate">3. A instrução <code>addi</code> — <em>add immediate</em></h2>
-<p>Primeira ocorrência:</p>
 <p><code>addi</code> (<em>add immediate</em>) é uma <strong>instrução real</strong> do conjunto RV32I que soma o conteúdo de um registrador com um <strong>imediato de 12 bits</strong> (intervalo de -2048 até +2047).</p>
 <p>Sintaxe:</p>
 <pre><code class="language-asm">addi rd, rs1, imediato
@@ -1211,7 +1208,6 @@ loop:
 </code></pre>
 <hr />
 <h3 id="43-manipular-ponteiros-enderecos-em-vetores">4.3 Manipular ponteiros (endereços) em vetores</h3>
-<p>Primeira ocorrência de:</p>
 <ul>
 <li><code>.data</code> — diretiva que inicia a <strong>sessão de dados</strong></li>
 <li><code>.text</code> — diretiva que inicia a <strong>sessão de código</strong></li>
@@ -1240,7 +1236,7 @@ main:
 <hr />
 <h2 id="5-exemplos-completos">5. Exemplos completos</h2>
 <h3 id="51-incremento-simples-com-limite">5.1 Incremento simples com limite</h3>
-<p>Primeira ocorrência de <code>blt</code> (<em>branch if less than</em>): desvia se <code>rs1 &lt; rs2</code>.</p>
+<p><code>blt</code> (<em>branch if less than</em>): desvia se <code>rs1 &lt; rs2</code>.</p>
 <pre><code class="language-asm">li t0, 0                # t0 = 0 (contador)
 li t1, 10               # t1 = 10 (limite)
 
@@ -1264,7 +1260,6 @@ loop:
 </code></pre>
 <hr />
 <h3 id="53-somando-com-imediatos-e-usando-addsub">5.3 Somando com imediatos e usando <code>add</code>/<code>sub</code></h3>
-<p>Primeira ocorrência de:</p>
 <ul>
 <li><code>add</code> — <em>add</em>: soma dois registradores
   <code>add rd, rs1, rs2</code> → <code>rd = rs1 + rs2</code></li>
