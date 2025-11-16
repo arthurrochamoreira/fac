@@ -20,8 +20,6 @@ Vou assumir que você já tem noção de:
 * noções básicas de **syscalls** (*system calls*) no **RARS**
   RARS = *RISC-V Assembler and Runtime Simulator*, um simulador de RISC-V que monta e executa programas `.asm`.
 
-Mesmo assim, tudo que aparecer pela primeira vez neste arquivo é explicado.
-
 ---
 
 ## 1. Ideia central: não existe `if`, só *branch*
