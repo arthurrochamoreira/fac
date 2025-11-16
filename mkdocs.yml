@@ -52,7 +52,7 @@ nav:
   # - MC/DC:
   #    - Modified Condition/Decision Coverage (MC/DC): aae3/mc_dc.md
   # - AAE:
-  # - AAE3: aae3/aae3.md
+  - P2: prova/p2.md
   - Modulo 1: modulos/modulo 1/mod1.md
   - Modulo 2: modulos/modulo 2/mod2.md
   - Modulo 3: modulos/modulo 3/mod3.md
