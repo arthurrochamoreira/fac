@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../../modulo%204/mod4.5_saltos/">
+        <link rel="prev" href="../../modulo%205/mod5/">
       
-      
-        <link rel="next" href="../../modulo%206/mod6/">
       
       
         
@@ -23,7 +21,7 @@
     
     
       
-        <title>Modulo 5 - Fundamentos de Arquitetura de Computadores</title>
+        <title>Modulo 6 - Fundamentos de Arquitetura de Computadores</title>
       
     
     
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#modulo-5-pilha-stack-e-organizacao-da-memoria" class="md-skip">
+        <a href="#modulo-6-multiplication-division" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -116,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Modulo 5
+              Modulo 6
             
           </span>
         </div>
@@ -303,11 +301,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../modulo%205/mod5/" class="md-tabs__link">
         
   
   
@@ -324,9 +320,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../../modulo%206/mod6/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -701,6 +699,33 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../modulo%205/mod5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modulo 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -720,7 +745,7 @@
   <span class="md-ellipsis">
     
   
-    Modulo 5
+    Modulo 6
   
 
     
@@ -738,7 +763,7 @@
   <span class="md-ellipsis">
     
   
-    Modulo 5
+    Modulo 6
   
 
     
@@ -764,10 +789,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-visao-geral-onde-entra-a-pilha-na-memoria" class="md-nav__link">
+  <a href="#1-o-que-e-a-extensao-m-no-risc-v" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Visão geral: onde entra a pilha na memória?
+        1. O que é a extensão M no RISC-V?
       
     </span>
   </a>
@@ -775,10 +800,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-o-que-e-a-pilha-stack" class="md-nav__link">
+  <a href="#2-conceitos-importantes-32-bits-produto-de-64-bits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. O que é a pilha (stack)?
+        2. Conceitos importantes: 32 bits, produto de 64 bits
       
     </span>
   </a>
@@ -786,10 +811,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-direcao-de-crescimento-da-pilha-no-risc-v" class="md-nav__link">
+  <a href="#3-multiplicacao-inteira-simples-mul" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Direção de crescimento da pilha no RISC-V
+        3. Multiplicação inteira simples: mul
       
     </span>
   </a>
@@ -797,33 +822,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-como-reservar-espaco-na-pilha" class="md-nav__link">
+  <a href="#4-multiplicacao-com-parte-alta-mulh-mulhu-mulhsu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Como reservar espaço na pilha
+        4. Multiplicação com parte alta: mulh, mulhu, mulhsu
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-como-guardar-e-restaurar-valores-na-pilha" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Como guardar e restaurar valores na pilha
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Como guardar e restaurar valores na pilha">
+    <nav class="md-nav" aria-label="4. Multiplicação com parte alta: mulh, mulhu, mulhsu">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-guardando-um-valor" class="md-nav__link">
+  <a href="#41-mulh-rd-rs1-rs2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1 Guardando um valor
+        4.1 mulh rd, rs1, rs2
       
     </span>
   </a>
@@ -831,10 +845,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-restaurando-esse-valor" class="md-nav__link">
+  <a href="#42-mulhu-rd-rs1-rs2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2 Restaurando esse valor
+        4.2 mulhu rd, rs1, rs2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-mulhsu-rd-rs1-rs2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 mulhsu rd, rs1, rs2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-combinando-mul-mulh-para-obter-64-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Combinando mul + mulh para obter 64 bits
       
     </span>
   </a>
@@ -847,22 +883,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-stack-frame-e-convencao-de-salvamento" class="md-nav__link">
+  <a href="#5-divisao-inteira-div-e-divu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Stack frame e convenção de salvamento
+        5. Divisão inteira: div e divu
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6. Stack frame e convenção de salvamento">
+    <nav class="md-nav" aria-label="5. Divisão inteira: div e divu">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#61-exemplo-de-stack-frame-simples" class="md-nav__link">
+  <a href="#51-div-rd-rs1-rs2-divisao-com-sinal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 Exemplo de stack frame simples
+        5.1 div rd, rs1, rs2 — divisão com sinal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-divu-rd-rs1-rs2-divisao-sem-sinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 divu rd, rs1, rs2 — divisão sem sinal
       
     </span>
   </a>
@@ -875,22 +922,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-exemplo-pratico-salvar-um-numero-na-pilha" class="md-nav__link">
+  <a href="#6-resto-da-divisao-rem-e-remu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Exemplo prático: salvar um número na pilha
+        6. Resto da divisão: rem e remu
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7. Exemplo prático: salvar um número na pilha">
+    <nav class="md-nav" aria-label="6. Resto da divisão: rem e remu">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#71-codigo-completo-e-comentado" class="md-nav__link">
+  <a href="#61-rem-rd-rs1-rs2-resto-com-sinal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1 Código completo e comentado
+        6.1 rem rd, rs1, rs2 — resto com sinal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-remu-rd-rs1-rs2-resto-sem-sinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 remu rd, rs1, rs2 — resto sem sinal
       
     </span>
   </a>
@@ -903,10 +961,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-recapitulando" class="md-nav__link">
+  <a href="#7-comportamento-especial-divisao-por-zero" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Recapitulando
+        7. Comportamento especial: divisão por zero
       
     </span>
   </a>
@@ -914,22 +972,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-exercicios-para-fixacao" class="md-nav__link">
+  <a href="#8-exemplos-completos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Exercícios para fixação
+        8. Exemplos completos
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="9. Exercícios para fixação">
+    <nav class="md-nav" aria-label="8. Exemplos completos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercicio-1-salvar-e-restaurar-dois-registradores" class="md-nav__link">
+  <a href="#81-multiplicacao-e-divisao-basicas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercício 1 — Salvar e restaurar dois registradores
+        8.1 Multiplicação e divisão básicas
       
     </span>
   </a>
@@ -937,10 +995,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercicio-2-funcao-que-usa-stack-frame-simples" class="md-nav__link">
+  <a href="#82-usando-mulh-para-detectar-overflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercício 2 — Função que usa stack frame simples
+        8.2 Usando mulh para detectar overflow
       
     </span>
   </a>
@@ -948,10 +1006,71 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercicio-3-salvar-um-valor-temporario-durante-uma-conta" class="md-nav__link">
+  <a href="#83-comparando-div-e-divu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercício 3 — Salvar um valor temporário durante uma conta
+        8.3 Comparando div e divu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-por-que-a-extensao-m-e-importante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Por que a extensão M é importante?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exercicios-para-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Exercícios para fixação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Exercícios para fixação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-1-produto-e-quociente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 1 — Produto e quociente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-2-produto-de-64-bits-com-mul-mulh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 2 — Produto de 64 bits com mul + mulh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-3-testando-div-vs-divu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 3 — Testando div vs divu
       
     </span>
   </a>
@@ -967,33 +1086,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../modulo%206/mod6/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Modulo 6
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1025,10 +1117,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-visao-geral-onde-entra-a-pilha-na-memoria" class="md-nav__link">
+  <a href="#1-o-que-e-a-extensao-m-no-risc-v" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Visão geral: onde entra a pilha na memória?
+        1. O que é a extensão M no RISC-V?
       
     </span>
   </a>
@@ -1036,10 +1128,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-o-que-e-a-pilha-stack" class="md-nav__link">
+  <a href="#2-conceitos-importantes-32-bits-produto-de-64-bits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. O que é a pilha (stack)?
+        2. Conceitos importantes: 32 bits, produto de 64 bits
       
     </span>
   </a>
@@ -1047,10 +1139,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-direcao-de-crescimento-da-pilha-no-risc-v" class="md-nav__link">
+  <a href="#3-multiplicacao-inteira-simples-mul" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Direção de crescimento da pilha no RISC-V
+        3. Multiplicação inteira simples: mul
       
     </span>
   </a>
@@ -1058,33 +1150,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-como-reservar-espaco-na-pilha" class="md-nav__link">
+  <a href="#4-multiplicacao-com-parte-alta-mulh-mulhu-mulhsu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Como reservar espaço na pilha
+        4. Multiplicação com parte alta: mulh, mulhu, mulhsu
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-como-guardar-e-restaurar-valores-na-pilha" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Como guardar e restaurar valores na pilha
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. Como guardar e restaurar valores na pilha">
+    <nav class="md-nav" aria-label="4. Multiplicação com parte alta: mulh, mulhu, mulhsu">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#51-guardando-um-valor" class="md-nav__link">
+  <a href="#41-mulh-rd-rs1-rs2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.1 Guardando um valor
+        4.1 mulh rd, rs1, rs2
       
     </span>
   </a>
@@ -1092,10 +1173,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#52-restaurando-esse-valor" class="md-nav__link">
+  <a href="#42-mulhu-rd-rs1-rs2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.2 Restaurando esse valor
+        4.2 mulhu rd, rs1, rs2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-mulhsu-rd-rs1-rs2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 mulhsu rd, rs1, rs2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-combinando-mul-mulh-para-obter-64-bits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Combinando mul + mulh para obter 64 bits
       
     </span>
   </a>
@@ -1108,22 +1211,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-stack-frame-e-convencao-de-salvamento" class="md-nav__link">
+  <a href="#5-divisao-inteira-div-e-divu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Stack frame e convenção de salvamento
+        5. Divisão inteira: div e divu
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6. Stack frame e convenção de salvamento">
+    <nav class="md-nav" aria-label="5. Divisão inteira: div e divu">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#61-exemplo-de-stack-frame-simples" class="md-nav__link">
+  <a href="#51-div-rd-rs1-rs2-divisao-com-sinal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 Exemplo de stack frame simples
+        5.1 div rd, rs1, rs2 — divisão com sinal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-divu-rd-rs1-rs2-divisao-sem-sinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 divu rd, rs1, rs2 — divisão sem sinal
       
     </span>
   </a>
@@ -1136,22 +1250,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-exemplo-pratico-salvar-um-numero-na-pilha" class="md-nav__link">
+  <a href="#6-resto-da-divisao-rem-e-remu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Exemplo prático: salvar um número na pilha
+        6. Resto da divisão: rem e remu
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7. Exemplo prático: salvar um número na pilha">
+    <nav class="md-nav" aria-label="6. Resto da divisão: rem e remu">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#71-codigo-completo-e-comentado" class="md-nav__link">
+  <a href="#61-rem-rd-rs1-rs2-resto-com-sinal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1 Código completo e comentado
+        6.1 rem rd, rs1, rs2 — resto com sinal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-remu-rd-rs1-rs2-resto-sem-sinal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 remu rd, rs1, rs2 — resto sem sinal
       
     </span>
   </a>
@@ -1164,10 +1289,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-recapitulando" class="md-nav__link">
+  <a href="#7-comportamento-especial-divisao-por-zero" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Recapitulando
+        7. Comportamento especial: divisão por zero
       
     </span>
   </a>
@@ -1175,22 +1300,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-exercicios-para-fixacao" class="md-nav__link">
+  <a href="#8-exemplos-completos" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. Exercícios para fixação
+        8. Exemplos completos
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="9. Exercícios para fixação">
+    <nav class="md-nav" aria-label="8. Exemplos completos">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#exercicio-1-salvar-e-restaurar-dois-registradores" class="md-nav__link">
+  <a href="#81-multiplicacao-e-divisao-basicas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercício 1 — Salvar e restaurar dois registradores
+        8.1 Multiplicação e divisão básicas
       
     </span>
   </a>
@@ -1198,10 +1323,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercicio-2-funcao-que-usa-stack-frame-simples" class="md-nav__link">
+  <a href="#82-usando-mulh-para-detectar-overflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercício 2 — Função que usa stack frame simples
+        8.2 Usando mulh para detectar overflow
       
     </span>
   </a>
@@ -1209,10 +1334,71 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#exercicio-3-salvar-um-valor-temporario-durante-uma-conta" class="md-nav__link">
+  <a href="#83-comparando-div-e-divu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercício 3 — Salvar um valor temporário durante uma conta
+        8.3 Comparando div e divu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-por-que-a-extensao-m-e-importante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Por que a extensão M é importante?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-exercicios-para-fixacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Exercícios para fixação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Exercícios para fixação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-1-produto-e-quociente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 1 — Produto e quociente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-2-produto-de-64-bits-com-mul-mulh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 2 — Produto de 64 bits com mul + mulh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercicio-3-testando-div-vs-divu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercício 3 — Testando div vs divu
       
     </span>
   </a>
@@ -1244,280 +1430,422 @@
   
 
 
-<h1 id="modulo-5-pilha-stack-e-organizacao-da-memoria">Módulo 5 — Pilha (Stack) e organização da memória</h1>
-<p>Neste módulo você vai aprender:</p>
+<h1 id="modulo-6-multiplication-division">Módulo 6 — Multiplication &amp; Division</h1>
+<p>Este módulo apresenta a <strong>extensão M do RISC-V</strong>
+(M de <em>Multiply/Divide</em>), que adiciona instruções de:</p>
 <ul>
-<li>o que é a <strong>pilha</strong> (<em>stack</em>)</li>
-<li>em que direção ela cresce na memória</li>
-<li>como <strong>reservar espaço</strong> na pilha</li>
-<li>como <strong>restaurar valores</strong> da pilha</li>
-<li>qual é a <strong>convenção de stack frame</strong> no RISC-V</li>
-<li>um exemplo prático de <strong>salvar e recuperar um número</strong> na pilha</li>
+<li>multiplicação inteira</li>
+<li>divisão inteira</li>
+<li>resto de divisão inteira</li>
+<li>acesso à parte alta do produto</li>
 </ul>
-<p>Vou assumir que você já viu funções com <code>jal</code> (<em>jump and link</em>) e <code>ret</code> (<em>return</em>), mas tudo que aparecer pela primeira vez aqui (sigla ou instrução) vai ser explicado.</p>
+<p>Sem a extensão M (ou seja, usando apenas <strong>RV32I</strong> — <em>RISC-V 32-bit Integer</em>), você teria que implementar multiplicação e divisão manualmente, com laços de somas e subtrações. Com <strong>RV32IM</strong>, o hardware já faz isso para você.</p>
 <hr />
-<h2 id="1-visao-geral-onde-entra-a-pilha-na-memoria">1. Visão geral: onde entra a pilha na memória?</h2>
-<p>Quando um programa está rodando, a memória do processo costuma ser organizada em regiões lógicas, entre elas:</p>
+<h2 id="1-o-que-e-a-extensao-m-no-risc-v">1. O que é a extensão M no RISC-V?</h2>
+<p>O RISC-V é definido em “módulos” de instruções.
+O núcleo básico é o <strong>I</strong> (<em>Integer</em>), e extensões acrescentam funcionalidades.</p>
+<p>Alguns conjuntos comuns:</p>
 <ul>
-<li><strong>código</strong> (<code>.text</code>) — onde ficam as instruções que o processador executa</li>
-<li><strong>dados estáticos</strong> (<code>.data</code>, <code>.bss</code>) — variáveis globais, constantes, strings</li>
-<li><strong>heap</strong> — área para alocação dinâmica (malloc, new etc., em linguagens de alto nível)</li>
-<li><strong>pilha</strong> (<em>stack</em>) — área usada para chamadas de função, variáveis locais e salvamento de registradores</li>
+<li><strong>RV32I</strong> – apenas instruções inteiras básicas</li>
+<li><strong>RV32IM</strong> – I + M (multiplicação e divisão inteiras)</li>
+<li><strong>RV32IMF</strong> – adiciona também ponto flutuante, etc.</li>
 </ul>
-<p>Neste módulo vamos focar na <strong>pilha</strong>.</p>
+<p>A extensão <strong>M</strong> adiciona estas instruções inteiras:</p>
+<ul>
+<li><code>mul</code> — multiplicação inteira (parte baixa)</li>
+<li><code>mulh</code>, <code>mulhu</code>, <code>mulhsu</code> — multiplicação retornando a parte alta do resultado</li>
+<li><code>div</code>, <code>divu</code> — divisão inteira (quociente)</li>
+<li><code>rem</code>, <code>remu</code> — resto da divisão inteira</li>
+</ul>
+<p>No RARS (<em>RISC-V Assembler and Runtime Simulator</em>), você normalmente já está usando um modo que suporta <strong>RV32IM</strong>.</p>
 <hr />
-<h2 id="2-o-que-e-a-pilha-stack">2. O que é a pilha (stack)?</h2>
-<p>A <strong>pilha</strong> (<em>stack</em>) é uma região da memória usada como uma <strong>estrutura LIFO</strong>
-(LIFO = <em>Last In, First Out</em>, “último a entrar, primeiro a sair”).</p>
-<p>Você pode imaginar uma pilha de pratos:</p>
-<ul>
-<li>o <strong>último prato</strong> que você coloca em cima é o <strong>primeiro</strong> que você pega de volta</li>
-<li>na memória, fazemos o mesmo com valores: empilhar e desempilhar</li>
-</ul>
-<p>Na pilha guardamos, principalmente:</p>
-<ul>
-<li>endereços de retorno (<code>ra</code> — <em>return address</em>, registrador de retorno)</li>
-<li>registradores salvos (<code>s0–s11</code> — <em>saved registers</em>, registradores preservados)</li>
-<li>variáveis locais de uma função</li>
-<li>parâmetros extras (quando não cabem em <code>a0–a7</code> — <em>argument registers</em>)</li>
-</ul>
-<hr />
-<h2 id="3-direcao-de-crescimento-da-pilha-no-risc-v">3. Direção de crescimento da pilha no RISC-V</h2>
-<p>No RISC-V (e em muitas arquiteturas), a pilha cresce para <strong>endereços menores</strong>.</p>
-<ul>
-<li><strong><code>sp</code> (stack pointer)</strong> é o registrador que aponta para o <strong>topo da pilha</strong>.</li>
-</ul>
-<p>Regra prática:</p>
-<ul>
-<li>para <strong>reservar espaço</strong> na pilha → diminuímos <code>sp</code></li>
-<li>para <strong>liberar espaço</strong> na pilha → aumentamos <code>sp</code></li>
-</ul>
+<h2 id="2-conceitos-importantes-32-bits-produto-de-64-bits">2. Conceitos importantes: 32 bits, produto de 64 bits</h2>
+<p>No <strong>RV32</strong>, cada registrador tem 32 bits.
+Quando você multiplica dois inteiros de 32 bits, o resultado completo tem até <strong>64 bits</strong>.</p>
 <p>Exemplo conceitual:</p>
-<pre><code class="language-text">endereços altos
-      ↑
-      │  (memória)
-      │
-      │      [   ]  
-      │      [   ]  ← valores mais antigos
-      │      [   ]  
-      │      [sp]  ← topo atual da pilha
-      └────────────
-endereços baixos
+<pre><code class="language-text">(a: 32 bits) × (b: 32 bits) → resultado: 64 bits
+
+parte alta  = bits [63:32]
+parte baixa = bits [31:0]
 </code></pre>
-<p>Quando fazemos:</p>
-<pre><code class="language-asm">addi sp, sp, -4    # addi (add immediate): sp = sp - 4
-</code></pre>
-<p>estamos “empurrando” o topo da pilha 4 bytes para <strong>baixo</strong> na memória e abrindo espaço para guardar algo.</p>
-<hr />
-<h2 id="4-como-reservar-espaco-na-pilha">4. Como reservar espaço na pilha</h2>
+<p>As instruções se dividem assim:</p>
 <ul>
-<li><strong><code>addi rd, rs1, imediato</code></strong> — instrução real <code>addi</code> (<em>add immediate</em>), soma um valor constante (<strong>imediato</strong>) ao registrador <code>rs1</code> e guarda o resultado em <code>rd</code>.</li>
+<li><code>mul</code>   → devolve a <strong>parte baixa</strong> (bits [31:0])</li>
+<li><code>mulh</code>  → devolve a parte alta considerando <strong>operandos com sinal</strong></li>
+<li><code>mulhu</code> → devolve a parte alta considerando <strong>operandos sem sinal</strong> (<em>unsigned</em>)</li>
+<li><code>mulhsu</code>→ devolve a parte alta considerando o primeiro operando com sinal e o segundo sem sinal</li>
 </ul>
+<p>Para <strong>divisão</strong>:</p>
+<ul>
+<li><code>div</code> / <code>rem</code>   → trabalham com números <strong>com sinal</strong> (inteiros 2’s complement)</li>
+<li><code>divu</code> / <code>remu</code> → trabalham com números <strong>sem sinal</strong> (<em>unsigned</em>)</li>
+</ul>
+<hr />
+<h2 id="3-multiplicacao-inteira-simples-mul">3. Multiplicação inteira simples: <code>mul</code></h2>
+<p>A instrução <code>mul</code> faz:</p>
+<pre><code class="language-text">rd = (rs1 * rs2) mod 2^32
+</code></pre>
+<p>Ou seja, guarda apenas a <strong>parte baixa</strong> do produto (32 bits).
+Se houver overflow, os bits “que sobraram” são descartados.</p>
 <p>Sintaxe:</p>
-<pre><code class="language-asm">addi rd, rs1, imm   # rd = rs1 + imm
+<pre><code class="language-asm">mul rd, rs1, rs2
 </code></pre>
-<p>No contexto da pilha, usamos:</p>
-<pre><code class="language-asm">addi sp, sp, -N     # reserva N bytes na pilha
-</code></pre>
-<p>Exemplo: reservar 8 bytes para guardar dois valores de 4 bytes (duas <em>words</em> de 32 bits):</p>
-<pre><code class="language-asm">addi sp, sp, -8    # reserva 8 bytes na pilha
-</code></pre>
-<p>Agora os 8 bytes “abaixo” do novo <code>sp</code> pertencem à função atual.</p>
-<hr />
-<h2 id="5-como-guardar-e-restaurar-valores-na-pilha">5. Como guardar e restaurar valores na pilha</h2>
-<p>Para realmente <strong>guardar</strong> algo na pilha, combinamos:</p>
-<ul>
-<li>ajuste de <code>sp</code> com <code>addi</code></li>
-<li>instruções de acesso à memória: <code>sw</code> e <code>lw</code></li>
-</ul>
-<p>Primeiras ocorrências:</p>
-<ul>
-<li><strong><code>sw rs2, offset(rs1)</code></strong> — <code>sw</code> (<em>store word</em>), grava uma <em>word</em> (32 bits = 4 bytes) da CPU para a memória.
-  Significa: “guardar o conteúdo de <code>rs2</code> na memória no endereço <code>rs1 + offset</code>”.</li>
-<li><strong><code>lw rd, offset(rs1)</code></strong> — <code>lw</code> (<em>load word</em>), lê uma <em>word</em> da memória para a CPU.
-  Significa: “carregar em <code>rd</code> os 4 bytes armazenados em <code>rs1 + offset</code>”.</li>
-</ul>
-<h3 id="51-guardando-um-valor">5.1 Guardando um valor</h3>
-<p>Padrão:</p>
-<pre><code class="language-asm">addi sp, sp, -4     # reserva 4 bytes na pilha
-sw   t0, 0(sp)      # sw (store word): guarda o valor de t0 no topo da pilha
-</code></pre>
-<h3 id="52-restaurando-esse-valor">5.2 Restaurando esse valor</h3>
-<p>Mais tarde:</p>
-<pre><code class="language-asm">lw   t0, 0(sp)      # lw (load word): lê o valor de volta para t0
-addi sp, sp, 4      # libera os 4 bytes usados na pilha
-</code></pre>
-<p>Regra de ouro:</p>
+<p>Significa:</p>
 <blockquote>
-<p>A quantidade que você <strong>subtraiu</strong> de <code>sp</code> para reservar deve ser <strong>somada de volta</strong> para liberar.</p>
+<p><code>rd</code> recebe o resultado da multiplicação de <code>rs1</code> por <code>rs2</code>.</p>
 </blockquote>
-<hr />
-<h2 id="6-stack-frame-e-convencao-de-salvamento">6. Stack frame e convenção de salvamento</h2>
-<ul>
-<li>
-<p><strong>Stack frame</strong> é o “pacote” de memória que <strong>cada função</strong> reserva na pilha para armazenar:</p>
-</li>
-<li>
-<p>registradores salvos (<code>s0–s11</code>)</p>
-</li>
-<li>registrador de retorno (<code>ra</code>)</li>
-<li>variáveis locais</li>
-<li>espaço para argumentos extras (se preciso)</li>
-</ul>
-<p>Na <strong>ABI (Application Binary Interface)</strong> do RISC-V, a regra é:</p>
-<ul>
-<li>registradores <strong>salvos</strong> (<code>s0–s11</code>) devem ser <strong>restaurados</strong> pela função que os usa</li>
-<li>se a função chamar outra função com <code>jal</code> (<em>jump and link</em>), ela geralmente precisa salvar <code>ra</code> na pilha</li>
-<li><code>sp</code> deve apontar para o topo do stack frame atual</li>
-</ul>
-<h3 id="61-exemplo-de-stack-frame-simples">6.1 Exemplo de stack frame simples</h3>
-<p>Vamos salvar <code>ra</code> e <code>s0</code> na pilha:</p>
-<pre><code class="language-asm">minha_funcao:
-    addi sp, sp, -8     # reserva 8 bytes na pilha
-    sw   ra, 4(sp)      # guarda ra na pilha (offset 4)
-    sw   s0, 0(sp)      # guarda s0 na pilha (offset 0)
-
-    # --- corpo da função ---
-    # usa s0 como variável local, etc.
-
-    lw   s0, 0(sp)      # restaura s0
-    lw   ra, 4(sp)      # restaura ra
-    addi sp, sp, 8      # libera 8 bytes
-    ret                 # ret (return): montado como jalr x0, 0(ra)
-</code></pre>
-<ul>
-<li><strong><code>ret</code></strong> é uma <strong>pseudo-instrução</strong> de retorno de função.
-  O montador converte para <code>jalr x0, 0(ra)</code> → salto indireto usando o endereço em <code>ra</code>.</li>
-</ul>
-<hr />
-<h2 id="7-exemplo-pratico-salvar-um-numero-na-pilha">7. Exemplo prático: salvar um número na pilha</h2>
-<p>Vamos fazer um programa simples que:</p>
-<ol>
-<li>coloca o valor <code>42</code> em um registrador</li>
-<li>salva esse valor na pilha</li>
-<li>zera o registrador para “provar” que o valor foi perdido</li>
-<li>recupera o valor da pilha para outro registrador</li>
-<li>imprime o valor recuperado</li>
-<li>encerra o programa</li>
-</ol>
-<p>Também vamos usar syscalls do <strong>RARS (RISC-V Assembler and Runtime Simulator)</strong>:</p>
-<p>Primeiras ocorrências aqui:</p>
-<ul>
-<li><strong>Syscall</strong> (<em>system call</em>) — serviço fornecido pelo ambiente do simulador, como imprimir ou ler.</li>
-<li><code>a7</code> — registrador que escolhe <strong>qual syscall</strong> será executada.</li>
-<li><code>a0</code> — registrador usado para <strong>argumento</strong> e <strong>retorno</strong> das syscalls.</li>
-<li><code>ecall</code> — instrução <strong>environment call</strong>, dispara a syscall escolhida em <code>a7</code>.</li>
-</ul>
-<p>Tabela usada:</p>
-<ul>
-<li><code>a7 = 1</code> → <strong>print_int</strong> (imprimir inteiro em <code>a0</code>)</li>
-<li><code>a7 = 11</code> → <strong>print_char</strong> (imprimir caractere em <code>a0</code>)</li>
-<li><code>a7 = 93</code> → <strong>exit2</strong> (encerrar programa)</li>
-</ul>
-<h3 id="71-codigo-completo-e-comentado">7.1 Código completo e comentado</h3>
-<pre><code class="language-asm">.text                      # .text: início da sessão de código (instruções)
-.globl main                # .globl (global): torna 'main' visível como ponto de entrada
+<p>Exemplo simples:</p>
+<pre><code class="language-asm">.text
+.globl main
 
 main:
-    li   t0, 42            # li (load immediate): coloca o valor 42 no registrador t0
+    li t0, 6              # li (load immediate): t0 = 6
+    li t1, 7              # t1 = 7
 
-    # --- salvar t0 na pilha ---
-    addi sp, sp, -4        # addi (add immediate): sp = sp - 4, reserva 4 bytes na pilha
-    sw   t0, 0(sp)         # sw (store word): guarda o valor de t0 nesses 4 bytes
+    mul t2, t0, t1        # mul: t2 = t0 * t1 = 42
 
-    # &quot;perder&quot; o valor original de t0
-    li   t0, 0             # li: agora t0 = 0, valor 42 não está mais no registrador
+    # imprimir resultado no RARS
+    mv a0, t2             # mv (move): a0 = t2
+    li a7, 1              # 1 = print_int
+    ecall
 
-    # --- recuperar o valor salvo ---
-    lw   t1, 0(sp)         # lw (load word): carrega da pilha para t1 o valor que estava salvo (42)
-    addi sp, sp, 4         # addi: sp = sp + 4, libera os 4 bytes usados na pilha
-
-    # --- imprimir o valor recuperado ---
-    mv   a0, t1            # mv (move): copia o valor de t1 para a0 (argumento da syscall)
-    li   a7, 1             # li: a7 = 1 → syscall print_int (imprimir inteiro)
-    ecall                  # ecall (environment call): executa a syscall, imprime 42
-
-    # opcional: imprimir quebra de linha
-    li   a0, 10            # li: a0 = 10, código ASCII de '\n'
-    li   a7, 11            # li: a7 = 11 → syscall print_char (imprimir caractere)
-    ecall                  # ecall: imprime '\n'
-
-    # --- encerrar programa ---
-    li   a7, 93            # li: a7 = 93 → syscall exit2 (encerrar execução)
-    ecall                  # ecall: encerra o programa
+    li a7, 93             # 93 = exit2
+    ecall
 </code></pre>
-<p>Resumo do que acontece:</p>
-<ul>
-<li>o valor <strong>42</strong> é salvo na memória (pilha), mesmo depois de <code>t0</code> ser alterado</li>
-<li>ao restaurar com <code>lw</code>, recuperamos esse valor em <code>t1</code></li>
-<li>provamos que a pilha é um lugar seguro para <strong>guardar valores temporários</strong></li>
-</ul>
 <hr />
-<h2 id="8-recapitulando">8. Recapitulando</h2>
-<p>Neste módulo você viu:</p>
+<h2 id="4-multiplicacao-com-parte-alta-mulh-mulhu-mulhsu">4. Multiplicação com parte alta: <code>mulh</code>, <code>mulhu</code>, <code>mulhsu</code></h2>
+<p>Quando você realmente precisa do resultado completo de 64 bits (ou quer detectar overflow), entra a família <code>mulh</code>.</p>
+<h3 id="41-mulh-rd-rs1-rs2">4.1 <code>mulh rd, rs1, rs2</code></h3>
+<p>Multiplicação com <strong>sinal</strong> em ambos os operandos.</p>
+<pre><code class="language-text">rs1 e rs2 tratados como inteiros com sinal (signed 32 bits)
+produto completo: 64 bits
+rd = parte alta do produto (bits [63:32])
+</code></pre>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">mulh rd, rs1, rs2
+</code></pre>
+<h3 id="42-mulhu-rd-rs1-rs2">4.2 <code>mulhu rd, rs1, rs2</code></h3>
+<p>Multiplicação <strong>sem sinal</strong> em ambos os operandos.</p>
+<pre><code class="language-text">rs1 e rs2 tratados como unsigned
+rd = parte alta do produto
+</code></pre>
+<h3 id="43-mulhsu-rd-rs1-rs2">4.3 <code>mulhsu rd, rs1, rs2</code></h3>
+<p>Multiplicação mista:</p>
 <ul>
-<li>o que é a <strong>pilha</strong> (<em>stack</em>) e que ela funciona no modelo <strong>LIFO</strong> (<em>Last In, First Out</em>)</li>
-<li>que o registrador <strong><code>sp</code> (stack pointer)</strong> aponta para o topo da pilha</li>
-<li>que no RISC-V a pilha cresce para <strong>endereços menores</strong></li>
-<li>como <strong>reservar espaço</strong> com <code>addi sp, sp, -N</code></li>
-<li>como <strong>salvar valores</strong> com <code>sw</code> e depois <strong>restaurar</strong> com <code>lw</code></li>
-<li>a ideia de <strong>stack frame</strong>: espaço na pilha reservado por cada função</li>
-<li>como salvar e restaurar <code>ra</code> e registradores salvos (<code>s0–s11</code>) seguindo a <strong>ABI (Application Binary Interface)</strong></li>
-<li>um exemplo completo que empilha um valor, zera o registrador e recupera o valor da pilha</li>
+<li><code>rs1</code> tratado como <strong>signed</strong></li>
+<li><code>rs2</code> tratado como <strong>unsigned</strong></li>
 </ul>
+<p>Isso é útil em algumas rotinas de aritmética de precisão ou otimizações específicas (por exemplo, divisão por constantes usando multiplicação por fator pré-calculado).</p>
+<h3 id="44-combinando-mul-mulh-para-obter-64-bits">4.4 Combinando <code>mul</code> + <code>mulh</code> para obter 64 bits</h3>
+<p>Suponha que você queira o produto completo de 64 bits de <code>a * b</code>:</p>
+<pre><code class="language-asm"># a em t0, b em t1
+mul  t2, t0, t1     # parte baixa  (low  32 bits)
+mulh t3, t0, t1     # parte alta   (high 32 bits)
+# Agora t3:t2 representa um inteiro de 64 bits
+</code></pre>
+<p>Em notação “concatenada”: <code>resultado_64 = (t3 &lt;&lt; 32) | t2</code>.</p>
 <hr />
-<h2 id="9-exercicios-para-fixacao">9. Exercícios para fixação</h2>
-<p>Tente fazer no RARS. Se quiser, você pode me mandar suas soluções para correção detalhada.</p>
-<h3 id="exercicio-1-salvar-e-restaurar-dois-registradores">Exercício 1 — Salvar e restaurar dois registradores</h3>
-<p>Implemente um programa que:</p>
+<h2 id="5-divisao-inteira-div-e-divu">5. Divisão inteira: <code>div</code> e <code>divu</code></h2>
+<h3 id="51-div-rd-rs1-rs2-divisao-com-sinal">5.1 <code>div rd, rs1, rs2</code> — divisão com sinal</h3>
+<p>Calcula o <strong>quociente</strong> da divisão inteira de <code>rs1</code> por <code>rs2</code>, tratando os operandos como inteiros com sinal (<em>signed</em>).</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">div rd, rs1, rs2
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p><code>rd = rs1 / rs2</code> (divisão inteira com sinal, truncando em direção a zero).</p>
+</blockquote>
+<p>Exemplo:</p>
+<pre><code class="language-asm">li t0,  7
+li t1,  2
+div t2, t0, t1      # t2 = 3   (7 / 2 = 3)
+
+li t0, -7
+li t1,  2
+div t3, t0, t1      # t3 = -3  (-7 / 2 = -3, truncado em direção a 0)
+</code></pre>
+<h3 id="52-divu-rd-rs1-rs2-divisao-sem-sinal">5.2 <code>divu rd, rs1, rs2</code> — divisão sem sinal</h3>
+<p>Mesma ideia, mas os operandos são interpretados como <strong>unsigned</strong> (sem sinal).</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">divu rd, rs1, rs2
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p><code>rd = (unsigned)rs1 / (unsigned)rs2</code></p>
+</blockquote>
+<p>Isso faz diferença quando os operandos têm o bit mais significativo (bit 31) igual a 1.</p>
+<hr />
+<h2 id="6-resto-da-divisao-rem-e-remu">6. Resto da divisão: <code>rem</code> e <code>remu</code></h2>
+<p>A família <code>rem</code> devolve o <strong>resto</strong> da divisão inteira:</p>
+<pre><code class="language-text">rs1 = divisor
+rs2 = divisor
+quociente  = rs1 / rs2
+resto      = rs1 - (quociente * rs2)
+</code></pre>
+<h3 id="61-rem-rd-rs1-rs2-resto-com-sinal">6.1 <code>rem rd, rs1, rs2</code> — resto com sinal</h3>
+<p>Trata os operandos como inteiros com sinal.</p>
+<p>Sintaxe:</p>
+<pre><code class="language-asm">rem rd, rs1, rs2
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p><code>rd = resto da divisão inteira de rs1 por rs2 (signed)</code></p>
+</blockquote>
+<p>Em geral, o sinal do resto segue o sinal do dividendo (<code>rs1</code>).</p>
+<p>Exemplo:</p>
+<pre><code class="language-asm">li t0,  7
+li t1,  2
+rem t2, t0, t1      # t2 = 1  (7 = 3*2 + 1)
+
+li t0, -7
+li t1,  2
+rem t3, t0, t1      # t3 = -1  (-7 = -3*2 + (-1))
+</code></pre>
+<h3 id="62-remu-rd-rs1-rs2-resto-sem-sinal">6.2 <code>remu rd, rs1, rs2</code> — resto sem sinal</h3>
+<p>Mesma lógica, mas com operandos <strong>unsigned</strong>:</p>
+<pre><code class="language-asm">remu rd, rs1, rs2
+</code></pre>
+<p>Significa:</p>
+<blockquote>
+<p><code>rd = resto da divisão (unsigned)</code></p>
+</blockquote>
+<p>Importante em algoritmos que tratam os valores como conjuntos de bits, não como números positivos/negativos.</p>
+<hr />
+<h2 id="7-comportamento-especial-divisao-por-zero">7. Comportamento especial: divisão por zero</h2>
+<p>A especificação do RISC-V define um comportamento específico quando o divisor (<code>rs2</code>) é zero:</p>
+<ul>
+<li>
+<p>em <code>div</code> / <code>divu</code>:</p>
+</li>
+<li>
+<p>o quociente é definido como <strong>-1</strong> (tudo em 1, para signed) ou <strong>0xFFFF_FFFF</strong> (para unsigned)</p>
+</li>
+<li>
+<p>em <code>rem</code> / <code>remu</code>:</p>
+</li>
+<li>
+<p>o resto é simplesmente o valor do <strong>dividendo</strong> (<code>rs1</code>)</p>
+</li>
+</ul>
+<p>Na prática:</p>
+<ul>
+<li><code>div t0, x, zero</code>  → t0 recebe um valor especial (normalmente -1)</li>
+<li><code>rem t1, x, zero</code>  → t1 recebe <code>x</code></li>
+</ul>
+<p>Mesmo assim, é <strong>boa prática</strong> evitar dividir por zero e tratar isso com testes usando <code>beq</code>/<code>bne</code>.</p>
+<hr />
+<h2 id="8-exemplos-completos">8. Exemplos completos</h2>
+<h3 id="81-multiplicacao-e-divisao-basicas">8.1 Multiplicação e divisão básicas</h3>
+<p>Programa que faz:</p>
 <ol>
-<li>Carregue o valor <code>10</code> em <code>t0</code> e o valor <code>20</code> em <code>t1</code>.</li>
-<li>Salve <strong>ambos</strong> na pilha (use <code>addi sp, sp, -8</code>, <code>sw</code> com offsets diferentes).</li>
-<li>Zere <code>t0</code> e <code>t1</code> com <code>li</code> para simular “perda” dos valores.</li>
-<li>Restaure <code>t0</code> e <code>t1</code> a partir da pilha usando <code>lw</code>.</li>
-<li>Some <code>t0 + t1</code> em <code>t2</code> e imprima o resultado com a syscall <code>print_int</code> (código 1).</li>
+<li><code>a = 20</code>, <code>b = 6</code></li>
+<li>calcula <code>produto = a * b</code></li>
+<li>calcula <code>quociente = a / b</code></li>
+<li>calcula <code>resto = a % b</code></li>
+<li>imprime os três resultados no RARS</li>
 </ol>
+<pre><code class="language-asm">.data
+msgProd: .asciz &quot;Produto: &quot;
+msgQuoc: .asciz &quot;Quociente: &quot;
+msgResto:.asciz &quot;Resto: &quot;
+msgNL:   .asciz &quot;\n&quot;
+
+.text
+.globl main
+
+main:
+    li t0, 20              # a = 20
+    li t1, 6               # b = 6
+
+    # produto
+    mul t2, t0, t1         # t2 = 20 * 6 = 120
+
+    # quociente
+    div t3, t0, t1         # t3 = 20 / 6 = 3 (inteiro)
+
+    # resto
+    rem t4, t0, t1         # t4 = 20 % 6 = 2
+
+    # imprimir produto
+    la a0, msgProd         # endereço da string &quot;Produto: &quot;
+    li a7, 4               # 4 = print_string
+    ecall
+
+    mv a0, t2              # valor do produto
+    li a7, 1               # 1 = print_int
+    ecall
+
+    la a0, msgNL
+    li a7, 4
+    ecall
+
+    # imprimir quociente
+    la a0, msgQuoc
+    li a7, 4
+    ecall
+
+    mv a0, t3
+    li a7, 1
+    ecall
+
+    la a0, msgNL
+    li a7, 4
+    ecall
+
+    # imprimir resto
+    la a0, msgResto
+    li a7, 4
+    ecall
+
+    mv a0, t4
+    li a7, 1
+    ecall
+
+    la a0, msgNL
+    li a7, 4
+    ecall
+
+    # sair
+    li a7, 93              # exit2
+    ecall
+</code></pre>
 <hr />
-<h3 id="exercicio-2-funcao-que-usa-stack-frame-simples">Exercício 2 — Função que usa stack frame simples</h3>
-<p>Crie:</p>
+<h3 id="82-usando-mulh-para-detectar-overflow">8.2 Usando <code>mulh</code> para detectar overflow</h3>
+<p>Suponha que você quer multiplicar dois inteiros e verificar se houve overflow (produto não coube em 32 bits).</p>
+<p>Se a <strong>parte alta</strong> do produto for diferente de zero (ou de -1 em caso de sinais específicos), significa que o resultado ultrapassou o intervalo que cabe num registrador de 32 bits.</p>
+<p>Exemplo simples: marcar overflow se a parte alta não é zero:</p>
+<pre><code class="language-asm">.text
+.globl main
+
+main:
+    li t0, 100000          # operando 1
+    li t1, 100000          # operando 2
+
+    mul  t2, t0, t1        # parte baixa
+    mulh t3, t0, t1        # parte alta
+
+    # se t3 != 0, houve overflow
+    bne t3, x0, tem_overflow
+
+    # aqui: sem overflow
+    # (t2 contém o resultado completo)
+    j fim
+
+tem_overflow:
+    # aqui você pode tratar o caso de overflow
+    # (ex.: imprimir mensagem de erro)
+fim:
+    li a7, 93
+    ecall
+</code></pre>
+<hr />
+<h3 id="83-comparando-div-e-divu">8.3 Comparando <code>div</code> e <code>divu</code></h3>
+<p>Código para ajudar a visualizar a diferença entre divisão com sinal e sem sinal:</p>
+<pre><code class="language-asm">.text
+.globl main
+
+main:
+    li t0, -8              # valor negativo em t0
+    li t1,  3
+
+    div  t2, t0, t1        # divisão com sinal   → t2 esperado: -2
+    divu t3, t0, t1        # divisão sem sinal   → t3: interpretando t0 como unsigned
+
+    # aqui você pode imprimir t2 e t3 para comparar
+    # (exercício sugerido abaixo)
+
+    li a7, 93
+    ecall
+</code></pre>
+<hr />
+<h2 id="9-por-que-a-extensao-m-e-importante">9. Por que a extensão M é importante?</h2>
+<p>Sem a extensão M:</p>
 <ul>
-<li>
-<p>uma função <code>add5</code> que:</p>
-</li>
-<li>
-<p>recebe um número em <code>a0</code>;</p>
-</li>
-<li>salva <code>ra</code> e <code>s0</code> na pilha;</li>
-<li>copia <code>a0</code> para <code>s0</code> (variável local);</li>
-<li>calcula <code>a0 = s0 + 5</code>;</li>
-<li>restaura <code>s0</code> e <code>ra</code> da pilha;</li>
-<li>
-<p>faz <code>ret</code>.</p>
-</li>
-<li>
-<p>na <code>main</code>:</p>
-</li>
-<li>
-<p>coloque <code>20</code> em <code>a0</code>;</p>
-</li>
-<li>chame <code>add5</code> com <code>jal ra, add5</code>;</li>
-<li>ao voltar, imprima o valor em <code>a0</code> com <code>print_int</code>.</li>
+<li><code>mul</code> teria que ser simulada com um laço de somas sucessivas</li>
+<li><code>div</code> e <code>rem</code> teriam que ser implementadas com laços de subtração repetida ou algoritmos mais complexos (como divisão binária)</li>
 </ul>
+<p>Isso é ótimo para aprender aritmética em baixo nível, mas:</p>
+<ul>
+<li>é <strong>muito mais lento</strong></li>
+<li>o código fica grande e complicado</li>
+</ul>
+<p>Na prática, quase todos os processadores RISC-V “de verdade” incluem a extensão <strong>M</strong>, e os simuladores (como RARS) também.</p>
 <hr />
-<h3 id="exercicio-3-salvar-um-valor-temporario-durante-uma-conta">Exercício 3 — Salvar um valor temporário durante uma conta</h3>
-<p>Faça um programa que:</p>
+<h2 id="10-exercicios-para-fixacao">10. Exercícios para fixação</h2>
+<p>Use o RARS para montar e rodar seus códigos, e observe os registradores no painel de execução.</p>
+<h3 id="exercicio-1-produto-e-quociente">Exercício 1 — Produto e quociente</h3>
+<p>Escreva um programa que:</p>
 <ol>
-<li>Calcule <code>t0 = 7</code> e <code>t1 = 9</code> usando <code>li</code>.</li>
-<li>Some <code>t0 + t1</code> e salve o resultado na pilha.</li>
-<li>Em seguida, calcule um novo valor em <code>t0</code> (por exemplo, <code>t0 = 100</code>) e em <code>t1</code> (<code>t1 = 200</code>).</li>
-<li>Restaure da pilha o valor antigo da soma para <code>t2</code>.</li>
-<li>Some <code>t2 + t0 + t1</code> e imprima o resultado final.</li>
+<li>Coloque dois inteiros em registradores (por exemplo, <code>a</code> em <code>t0</code>, <code>b</code> em <code>t1</code>).</li>
+<li>Use <code>mul</code> para calcular o produto em <code>t2</code>.</li>
+<li>Use <code>div</code> para calcular o quociente em <code>t3</code>.</li>
+<li>Use <code>rem</code> para calcular o resto em <code>t4</code>.</li>
+<li>
+<p>Imprima, com <code>print_int</code> (syscall 1):</p>
+</li>
+<li>
+<p>o produto</p>
+</li>
+<li>o quociente</li>
+<li>o resto</li>
 </ol>
-<p>Use sempre a sequência correta:</p>
-<ul>
-<li>ajustar <code>sp</code> com <code>addi</code> antes de <code>sw</code></li>
-<li>usar <code>lw</code> antes de devolver <code>sp</code> ao valor original.</li>
-</ul>
+<p>em linhas separadas.</p>
+<hr />
+<h3 id="exercicio-2-produto-de-64-bits-com-mul-mulh">Exercício 2 — Produto de 64 bits com <code>mul</code> + <code>mulh</code></h3>
+<p>Implemente:</p>
+<ol>
+<li>
+<p>Leia dois inteiros do usuário (2 vezes <code>read_int</code>, syscall 5).</p>
+</li>
+<li>
+<p>Calcule o produto completo de 64 bits:</p>
+</li>
+<li>
+<p>parte baixa em um registrador</p>
+</li>
+<li>
+<p>parte alta em outro registrador</p>
+</li>
+<li>
+<p>Imprima os dois valores:</p>
+</li>
+<li>
+<p>primeiro a parte alta</p>
+</li>
+<li>depois a parte baixa</li>
+</ol>
+<p>Dica: use a combinação <code>mul</code> + <code>mulh</code>.</p>
+<hr />
+<h3 id="exercicio-3-testando-div-vs-divu">Exercício 3 — Testando <code>div</code> vs <code>divu</code></h3>
+<p>Escreva um programa que:</p>
+<ol>
+<li>
+<p>Coloque em <code>t0</code> um valor negativo (por exemplo, <code>-8</code>).</p>
+</li>
+<li>
+<p>Coloque em <code>t1</code> o valor <code>3</code>.</p>
+</li>
+<li>
+<p>Calcule:</p>
+</li>
+<li>
+<p><code>div t2, t0, t1</code></p>
+</li>
+<li>
+<p><code>divu t3, t0, t1</code></p>
+</li>
+<li>
+<p>Imprima ambos os resultados (<code>t2</code> e <code>t3</code>) usando <code>print_int</code>, com mensagens indicando qual é qual.</p>
+</li>
+<li>
+<p>Observe no RARS:</p>
+</li>
+<li>
+<p>o que acontece com a divisão com sinal</p>
+</li>
+<li>o que acontece com a divisão sem sinal</li>
+</ol>
+<p>Você pode alterar os valores e repetir o teste para outros casos.</p>
 
 
 
@@ -1553,7 +1881,7 @@ main:
       <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
         
           
-          <a href="../../modulo%204/mod4.5_saltos/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: 4.5. Saltos">
+          <a href="../../modulo%205/mod5/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Modulo 5">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1563,27 +1891,11 @@ main:
                 Anterior
               </span>
               <div class="md-ellipsis">
-                4.5. Saltos
+                Modulo 5
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../modulo%206/mod6/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Modulo 6">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Próximo
-              </span>
-              <div class="md-ellipsis">
-                Modulo 6
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
