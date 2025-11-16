@@ -57,7 +57,7 @@ nav:
   - Modulo 2: modulos/modulo 2/mod2.md
   - Modulo 3: modulos/modulo 3/mod3.md
   - Modulo 4: 
-    - 4.1. Instruções de Imediato (`li`, `addi`): modulos/modulo 4/mod4.1_instrucoes_de_imediato.md
+    - 4.1. Instruções de Imediato: modulos/modulo 4/mod4.1_instrucoes_de_imediato.md
     - 4.2. Movimentação de Dados:  modulos/modulo 4/mod4.2_movimentacoes_de_dados.md
     - 4.3. Aritmética Básica:  modulos/modulo 4/mod4.3_aritmetica_basica.md
     - 4.4. Comparações e Desvios:  modulos/modulo 4/mod4.4_comparacoes_e_desvios.md
