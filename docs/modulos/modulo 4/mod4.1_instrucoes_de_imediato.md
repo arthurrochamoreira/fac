@@ -1,4 +1,4 @@
-# Módulo 4 — Instruções de Imediato (`li`, `addi`)
+# Módulo 4.1. — Instruções de Imediato (`li`, `addi`)
 
 As instruções **de imediato** são fundamentais no RISC-V
 (ISA — *Instruction Set Architecture*: conjunto de instruções que o processador entende),

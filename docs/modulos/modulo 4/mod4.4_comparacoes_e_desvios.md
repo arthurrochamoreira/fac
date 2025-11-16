@@ -1,4 +1,4 @@
-# Módulo 4 — Comparações e Desvios
+# Módulo 4.4. — Comparações e Desvios
 
 (`beq`, `bne`, `blt`, `bgt`, `beqz`, `bnez`)
 
