@@ -37,11 +37,8 @@ As três instruções principais são:
 
 # 2. A pseudo-instrução `j` — *jump*
 
-Primeira ocorrência:
-
 **`j` (jump)** é uma **pseudo-instrução** de salto incondicional.
 
-Primeira ocorrência do termo:
 **Pseudo-instrução** é uma “instrução de mentira” fornecida pelo montador (assembler):
 ela **não existe no hardware**, mas é automaticamente traduzida para uma ou mais instruções reais.
 
@@ -75,8 +72,6 @@ j loop      # sempre desvia para o rótulo 'loop'
 ---
 
 # 3. A instrução `jal` — *jump and link*
-
-Primeira ocorrência:
 
 **`jal` (jump and link)** é uma instrução real da ISA RV32I
 (ISA = *Instruction Set Architecture*, arquitetura de conjunto de instruções).
@@ -118,8 +113,6 @@ Veremos isso a seguir.
 
 # 4. A instrução `jalr` — *jump and link register*
 
-Primeira ocorrência:
-
 **`jalr` (jump and link register)** é a versão “indireta” de `jal`:
 em vez de pular para um **label** fixo, ela pula para um **endereço em um registrador**.
 
@@ -158,8 +151,6 @@ ret               # montador: jalr x0, 0(ra)
 ---
 
 # 5. Pseudo-instruções relacionadas (`jr`, `ret`)
-
-Primeira ocorrência de cada:
 
 * **`jr rd` (jump register)**
   Pula para o endereço contido em `rd`, sem guardar retorno.

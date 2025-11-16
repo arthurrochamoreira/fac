@@ -25,8 +25,6 @@ No RISC-V, tudo isso é feito com poucas instruções simples e totalmente deter
 
 # 2. A instrução `add` — somar registradores
 
-Primeira ocorrência:
-
 **`add` (add) é uma instrução real do RV32I que soma dois registradores e guarda o resultado em um terceiro.**
 
 Sintaxe:
@@ -53,8 +51,6 @@ add t2, t0, t1        # t2 = 7 + 5 = 12
 ---
 
 # 3. A instrução `addi` — somar com imediato
-
-Primeira ocorrência:
 
 **`addi` (add immediate) é a versão de soma onde o segundo operando é um valor imediato de 12 bits (constante inteira).**
 
@@ -91,8 +87,6 @@ addi t0, t0, 4        # avança 1 word (4 bytes)
 ---
 
 # 4. A instrução `sub` — subtração
-
-Primeira ocorrência:
 
 **`sub` (subtract) é uma instrução do RV32I que calcula a diferença entre dois registradores.**
 

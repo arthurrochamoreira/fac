@@ -42,8 +42,6 @@ Por isso `lw` e `sw` são tão importantes.
 
 ## 2. `mv` — mover valor entre registradores
 
-Primeira ocorrência:
-
 `mv` (*move*) é uma **pseudo-instrução**.
 Pseudo-instrução = instrução que **não existe no hardware**, mas o montador converte automaticamente para uma ou mais instruções reais.
 
@@ -79,8 +77,6 @@ addi rd, rs, 0         # addi (add immediate): rd = rs + 0
 ---
 
 ## 3. `lw` — load word (carregar palavra da memória)
-
-Primeira ocorrência:
 
 `lw` (*load word*) é uma **instrução real** do conjunto básico RV32I
 (RV32I = versão de 32 bits do RISC-V para inteiros, *RISC-V 32-bit Integer*).
@@ -132,8 +128,6 @@ Passo a passo:
 
 ## 4. `sw` — store word (armazenar palavra na memória)
 
-Primeira ocorrência:
-
 `sw` (*store word*) grava um valor de 32 bits **da CPU para a memória**.
 
 Sintaxe:
@@ -172,8 +166,6 @@ Depois de executar:
 ---
 
 ## 5. `la` — load address (carregar endereço)
-
-Primeira ocorrência:
 
 `la` (*load address*) é uma **pseudo-instrução** que carrega o **endereço de um rótulo** (`label`) para dentro de um registrador.
 

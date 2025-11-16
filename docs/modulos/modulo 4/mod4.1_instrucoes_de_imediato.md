@@ -15,8 +15,6 @@ Neste módulo você vai ver:
 
 ## 1. O que é um “valor imediato”?
 
-Primeira ocorrência:
-
 Um **imediato** (*immediate*) é um valor **constante** escrito **diretamente na instrução**, e não buscado da memória.
 
 Exemplo conceitual:
@@ -41,8 +39,6 @@ onde o valor vem da **memória**, não está “dentro” da instrução.
 ---
 
 ## 2. A pseudo-instrução `li` — *load immediate*
-
-Primeira ocorrência:
 
 `li` (*load immediate*) é uma **pseudo-instrução** do montador (não existe no hardware real RV32I) que carrega um valor imediato em um registrador.
 
@@ -76,8 +72,6 @@ Você **não precisa** se preocupar com isso no começo: use `li` livremente par
 ---
 
 ## 3. A instrução `addi` — *add immediate*
-
-Primeira ocorrência:
 
 `addi` (*add immediate*) é uma **instrução real** do conjunto RV32I que soma o conteúdo de um registrador com um **imediato de 12 bits** (intervalo de -2048 até +2047).
 
@@ -133,8 +127,6 @@ loop:
 
 ### 4.3 Manipular ponteiros (endereços) em vetores
 
-Primeira ocorrência de:
-
 * `.data` — diretiva que inicia a **sessão de dados**
 * `.text` — diretiva que inicia a **sessão de código**
 * `la` — *load address*, carrega o **endereço** de um label
@@ -172,7 +164,7 @@ addi t2, t1, 100    # addi: t2 = t1 + 100 (deslocamento de 100 bytes)
 
 ### 5.1 Incremento simples com limite
 
-Primeira ocorrência de `blt` (*branch if less than*): desvia se `rs1 < rs2`.
+`blt` (*branch if less than*): desvia se `rs1 < rs2`.
 
 ```asm
 li t0, 0                # t0 = 0 (contador)
@@ -204,8 +196,6 @@ loop:
 ---
 
 ### 5.3 Somando com imediatos e usando `add`/`sub`
-
-Primeira ocorrência de:
 
 * `add` — *add*: soma dois registradores
   `add rd, rs1, rs2` → `rd = rs1 + rs2`
